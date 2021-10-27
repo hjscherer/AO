@@ -25,16 +25,6 @@
                     "bladeTitle": "AlwaysOn prefix",
                     "elements": [
                         {
-                            "name": "info",
-                            "type": "Microsoft.Common.InfoBox",
-                            "visible": true,
-                            "options": {
-                                "text": "AlwaysOn will use this prefix for all resoruce groups this AlwaysOn deployment will use.",
-                                "uri": "",
-                                "style": "Info"
-                            }
-                        },
-                        {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "visible": true,
