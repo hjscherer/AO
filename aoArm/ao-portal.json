@@ -27,7 +27,7 @@
                         {
                             "name": "info",
                             "type": "Microsoft.Common.InfoBox",
-                            "visible": "true",
+                            "visible": true,
                             "options": {
                                 "text": "AlwaysOn will use this prefix for all resoruce groups this AlwaysOn deployment will use.",
                                 "uri": "",
@@ -37,7 +37,7 @@
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
-                            "visible": "true",
+                            "visible": true,
                             "options": {
                                 "text": "AlwaysOn will use the same prefix for all pipelines",
                                 "link": {
@@ -53,7 +53,7 @@
                             "toolTip": "Provide a prefix (max 5 characters) for the Management Group hierarchy and other resources created as part of Enterprise-scale.",
                             "defaultValue": "",
                             "constraints": {
-                                "required": "true",
+                                "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
                                 "validationMessage": "The prefix must be 1-5 characters."
                             }
@@ -66,7 +66,7 @@
                                 {
                                     "name": "subText",
                                     "type": "Microsoft.Common.TextBlock",
-                                    "visible": "true",
+                                    "visible": true,
                                     "options": {
                                         "text": "Select the subscription that will be used by the pipeline for the AlwaysOn deployment. AlwaysOn will be distributed across multible resource groups."
                                     }
@@ -77,7 +77,7 @@
                                     "label": "AlwaysOn subscription"
                                 }
                             ],
-                            "visible": "true"
+                            "visible": true
                         }
                     ]
                 },
@@ -90,7 +90,7 @@
                         {
                             "name": "info",
                             "type": "Microsoft.Common.InfoBox",
-                            "visible": "true",
+                            "visible": true,
                             "options": {
                                 "text": "AlwaysOn will be deployed and is full managed via a CICD pipeline using Azure DevOps Pipelines",
                                 "uri": "",
@@ -100,7 +100,7 @@
                         {
                             "name": "Instructions",
                             "type": "Microsoft.Common.TextBlock",
-                            "visible": "true",
+                            "visible": true,
                             "options": {
                                 "text": "Provide the credentials to initialize the repository with the ARM templates for AlwaysOn.",
                                 "link": {
@@ -122,19 +122,19 @@
                                         "value": "adoDevOpsPipelines"
                                     }
                                 ],
-                                "required": "true"
+                                "required": true
                             },
-                            "visible": "true"
+                            "visible": true
                         },
                         {
                             "name": "aoAdoOrg",
                             "type": "Microsoft.Common.TextBox",
                             "label": "Select an existing Azure DevOps organization name",
                             "toolTip": "Provide Azure DevOps organization name.",
-                            "visible": "true",
+                            "visible": true,
                             "defaultValue": "",
                             "constraints": {
-                                "required": "true",
+                                "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,50}$",
                                 "validationMessage": "The Azure DevOps organization name must be 1-50 characters."
                             }
@@ -145,10 +145,10 @@
                             "label": "New Azure DevOps project name",
                             "toolTip": "Provide a name for the new repository that will be created",
                             "defaultValue": "",
-                            "visible": "true",
+                            "visible": true,
                             "placeholder": "",
                             "constraints": {
-                                "required": "true",
+                                "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,64}$",
                                 "validationMessage": "The repository name must be 1-64 characters."
                             }
@@ -158,10 +158,10 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "GitHub organization or username",
                             "toolTip": "Provide an exiting GitHub org/username.",
-                            "visible": "true",
+                            "visible": true,
                             "defaultValue": "",
                             "constraints": {
-                                "required": "true",
+                                "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,39}$",
                                 "validationMessage": "The GitHub org/username must be 1-39 characters."
                             }
@@ -172,10 +172,10 @@
                             "label": "New GitHub repository name",
                             "toolTip": "Provide a name for the new repository that will be created",
                             "defaultValue": "",
-                            "visible": "true",
+                            "visible": true,
                             "placeholder": "",
                             "constraints": {
-                                "required": "true",
+                                "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,100}$",
                                 "validationMessage": "The repository name must be 1-100 characters."
                             }
@@ -189,13 +189,13 @@
                             },
                             "toolTip": "Provide the personal access token to access your GitHub account or organization. For more information see this link: https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token",
                             "constraints": {
-                                "required": "true",
+                                "required": true,
                                 "validationMessage": "Password must be at least 8 characters long, contain only numbers and letters"
                             },
                             "options": {
-                                "hideConfirmation": "true"
+                                "hideConfirmation": true
                             },
-                            "visible": "true"
+                            "visible": true
                         },
                         {
                             "name": "spnSection",
@@ -205,7 +205,7 @@
                                 {
                                     "name": "aoServicePrincipal",
                                     "type": "Microsoft.Common.ServicePrincipalSelector",
-                                    "visible": "true",
+                                    "visible": true,
                                     "label": {
                                         "password": "Password",
                                         "certificateThumbprint": "Certificate thumbprint",
@@ -222,14 +222,14 @@
                                         "name": ""
                                     },
                                     "constraints": {
-                                        "required": "true"
+                                        "required": true
                                     },
                                     "options": {
-                                        "hideCertificate": "true"
+                                        "hideCertificate": true
                                     }
                                 }
                             ],
-                            "visible": "true"
+                            "visible": true
                         }
                     ]
                 }
