@@ -140,7 +140,7 @@
                             }
                         },
                         {
-                            "name": "aoAdoRepoName",
+                            "name": "aoAdoProjectName",
                             "type": "Microsoft.Common.TextBox",
                             "label": "New Azure DevOps project name",
                             "toolTip": "Provide a name for the new repository that will be created",
