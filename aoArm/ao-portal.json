@@ -7,7 +7,7 @@
             "steps": [
                 {
                     "name": "basics",
-                    "label": "AlwaysOn primary deployment location",
+                    "label": "Deployment location",
                     "elements": [
                         {
                             "name": "resourceScope",
@@ -24,6 +24,16 @@
                     },
                     "bladeTitle": "AlwaysOn prefix",
                     "elements": [
+                        {
+                            "name": "info",
+                            "type": "Microsoft.Common.InfoBox",
+                            "visible": true,
+                            "options": {
+                                "text": "AlwaysOn will use this prefix for all resoruce groups this AlwaysOn deployment will use.",
+                                "uri": "",
+                                "style": "Info"
+                            }
+                        },
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
@@ -49,14 +59,25 @@
                             }
                         },
                         {
-                            "name": "info",
-                            "type": "Microsoft.Common.InfoBox",
-                            "visible": true,
-                            "options": {
-                                "text": "AlwaysOn will use this prefix for all resoruce groups this AlwaysOn deployment will use.",
-                                "uri": "",
-                                "style": "Info"
-                            }
+                            "name": "aoSubSelector",
+                            "type": "Microsoft.Common.Section",
+                            "label": "AlwaysOn subscription",
+                            "elements": [
+                                {
+                                    "name": "subText",
+                                    "type": "Microsoft.Common.TextBlock",
+                                    "visible": true,
+                                    "options": {
+                                        "text": "Select the subscription that will be used by the pipeline for the AlwaysOn deployment. AlwaysOn will be distributed across multible resource groups."
+                                    }
+                                },
+                                {
+                                    "type": "Microsoft.Common.SubscriptionSelector",
+                                    "name": "aoSub",
+                                    "label": "AlwaysOn subscription"
+                                }
+                            ],
+                            "visible": true
                         }
                     ]
                 },
