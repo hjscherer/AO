@@ -37,7 +37,7 @@
         "subscriptionId": {}
     },
     "variables": {
-        "userManagedIdentityName": "[concat(resourceGroup().name, '-umi')]"
+
     },
     "resources": [
         {
@@ -50,50 +50,18 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-05-01",
-            "name": "ado",
+            "name": "ado-dployment-name",
             "resourceGroup": "ao-pipeline-rg",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/resourceGroups/', 'ao-pipeline-rg')]"
             ],
             "properties": {
                 "mode": "Incremental",
-                "template": {
-                    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+                "templateLink": {
                     "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-                            "apiVersion": "2018-11-30",
-                            "name": "[variables('userManagedIdentityName')]",
-                            "location": "[deployment().location]"
-                        },
-                        {
-                            "type": "Microsoft.Resources/deploymentScripts",
-                            "apiVersion": "2020-10-01",
-                            "name": "[concat(resourceGroup().name, '-Ado')]",
-                            "location": "[resourceGroup().location]",
-                            "kind": "AzurePowerShell",
-                            "identity": {
-                                "type": "userAssigned",
-                                "userAssignedIdentities": {
-                                    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userManagedIdentityName'))]": {}
-                                }
-                            },
-                            "dependsOn": [
-                            ],
-                            "properties": {
-                                "primaryScriptUri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Deploy.ps1",
-                                "arguments": "",
-                                "azPowerShellVersion": "6.3",
-                                "timeout": "PT30M",
-                                "cleanupPreference": "Always",
-                                "retentionInterval": "P1D"
-                            }
-                        }
-                    ],
-                    "outputs": {}
+                    "uri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/aoCICDArm.json"
+                },
+                "parameters": {
                 }
             }
         }
