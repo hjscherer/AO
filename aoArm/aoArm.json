@@ -72,15 +72,7 @@
             ],
             "properties": {
                 "primaryScriptUri": "aoArm/deploymentScript/AzDevOps-Deploy.ps1",
-                "arguments": "[concat('-NewRepositoryName', ' ', parameters('repositoryName'), ' ',
-                                      '-GitHubUserNameOrOrg', ' ', parameters('gitHubUserNameOrOrg'), ' ', 
-                                      '-SPNSecretName', ' ', variables('spnSecretName'), ' ',
-                                      '-SpnAppId', ' ', parameters('appId'), ' ',
-                                      '-PATSecretName', ' ', variables('patSecretName'), ' ',
-                                      '-AzureTenantId', ' ', subscription().tenantId, ' ',
-                                      '-EnterpriseScalePrefix', ' ', parameters('topLevelManagementGroupPrefix'), ' ',
-                                      '-AzureSubscriptionId', ' ', subscription().subscriptionId)
-            ]",
+                "arguments": "",
                 "azPowerShellVersion": "6.3",
             "timeout": "PT30M",
             "cleanupPreference": "Always",
