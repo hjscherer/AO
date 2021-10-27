@@ -11,6 +11,7 @@
                     "elements": [
                         {
                             "name": "resourceScope",
+                            "title": "Primary AlwaysOn depployment location",
                             "type": "Microsoft.Common.ResourceScope"
                         }
                     ]
@@ -39,7 +40,7 @@
                             "type": "Microsoft.Common.TextBlock",
                             "visible": true,
                             "options": {
-                                "text": "AlwaysOn will use the same prefix for all pipelines",
+                                "text": "AlwaysOn prefix for all pipelines",
                                 "link": {
                                     "label": "Learn more",
                                     "uri": ""
