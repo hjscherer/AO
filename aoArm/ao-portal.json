@@ -7,12 +7,32 @@
             "steps": [
                 {
                     "name": "basics",
-                    "label": "Deployment location",
+                    "label": "AlwaysOn primary deployment location",
                     "elements": [
                         {
+                            "name": "aoLocationsApi",
+                            "type": "Microsoft.Solutions.ArmApiControl",
+                            "request": {
+                                "method": "GET",
+                                "path": "locations?api-version=2019-11-01"
+                            }
+                        },
+                        {
+                            "name": "aoLocation",
+                            "type": "Microsoft.Common.DropDown",
+                            "label": "Region for primary deployment location",
+                            "filter": true,
+                            "toolTip": "Select the target region the AlwaysOn deployment",
+                            "constraints": {
+                                "allowedValues": "[map(steps('basics').aoLocationsApi.value,(item) => parse(concat('{\"label\":\"',item.displayName,'\",\"value\":\"',item.name,'\"}')))]",
+                                "required": true
+                            },
+                            "visible": true
+                        }
+                        /*{
                             "name": "resourceScope",
                             "type": "Microsoft.Common.ResourceScope"
-                        }
+                        }*/
                     ]
                 },
                 {
@@ -25,14 +45,25 @@
                     "bladeTitle": "AlwaysOn prefix",
                     "elements": [
                         {
-                            "name": "info",
-                            "type": "Microsoft.Common.InfoBox",
-                            "visible": true,
-                            "options": {
-                                "text": "AlwaysOn will use this prefix for all resoruce groups this AlwaysOn deployment will use.",
-                                "uri": "",
-                                "style": "Info"
-                            }
+                            "name": "aoSubSelector",
+                            "type": "Microsoft.Common.Section",
+                            "label": "AlwaysOn subscription",
+                            "elements": [
+                                {
+                                    "name": "subText",
+                                    "type": "Microsoft.Common.TextBlock",
+                                    "visible": true,
+                                    "options": {
+                                        "text": "Select the subscription that will be used by the pipeline for the AlwaysOn deployment. AlwaysOn will be distributed across multible resource groups."
+                                    }
+                                },
+                                {
+                                    "type": "Microsoft.Common.SubscriptionSelector",
+                                    "name": "aoSub",
+                                    "label": "AlwaysOn subscription"
+                                }
+                            ],
+                            "visible": true
                         },
                         {
                             "name": "resourceGroup",
@@ -59,25 +90,14 @@
                             }
                         },
                         {
-                            "name": "aoSubSelector",
-                            "type": "Microsoft.Common.Section",
-                            "label": "AlwaysOn subscription",
-                            "elements": [
-                                {
-                                    "name": "subText",
-                                    "type": "Microsoft.Common.TextBlock",
-                                    "visible": true,
-                                    "options": {
-                                        "text": "Select the subscription that will be used by the pipeline for the AlwaysOn deployment. AlwaysOn will be distributed across multible resource groups."
-                                    }
-                                },
-                                {
-                                    "type": "Microsoft.Common.SubscriptionSelector",
-                                    "name": "aoSub",
-                                    "label": "AlwaysOn subscription"
-                                }
-                            ],
-                            "visible": true
+                            "name": "info",
+                            "type": "Microsoft.Common.InfoBox",
+                            "visible": true,
+                            "options": {
+                                "text": "AlwaysOn will use this prefix for all resoruce groups this AlwaysOn deployment will use.",
+                                "uri": "",
+                                "style": "Info"
+                            }
                         }
                     ]
                 },
@@ -248,7 +268,7 @@
                 "subscriptionId": "[steps('aoSettings').aoSubSelector.aoSub.subscriptionId]"
             },
             "kind": "subscription",
-            "location": "[steps('basics').resourceScope.location.name]"
+            "location": "[steps('basics').aoLocation.name]"
         }
     }
 }
