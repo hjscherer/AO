@@ -59,7 +59,7 @@
                             }
                         },
                         {
-                            "name": "aoSub",
+                            "name": "aoSubSelector",
                             "type": "Microsoft.Common.Section",
                             "label": "AlwaysOn subscription",
                             "elements": [
@@ -245,7 +245,7 @@
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
                 "paToken": "[steps('aoDevOps').aoPaToken]",
-                "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
+                "subscriptionId": "[steps('aoSettings').aoSubSelector.aoSub.subscriptionId]"
             },
             "kind": "subscription",
             "location": "[steps('basics').resourceScope.location.name]"
