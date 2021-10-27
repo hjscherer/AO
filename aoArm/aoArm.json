@@ -33,10 +33,6 @@
         "paToken": {
             "type": "securestring",
             "defaultValue": ""
-        },
-        "subscriptionId": {
-            "type": "string",
-            "defaultValue": ""
         }
     },
     "variables": {
