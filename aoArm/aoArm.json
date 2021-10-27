@@ -66,24 +66,21 @@
                 }
             },
             "dependsOn": [
-                // "[resourceId('Microsoft.KeyVault/vaults/providers/roleAssignments', variables('keyVaultName'), 'Microsoft.Authorization', guid(variables('keyVaultName')))]",
-                // "[resourceId('Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('patSecretName'))]",
-                // "[resourceId('Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('spnSecretName'))]"
             ],
             "properties": {
                 "primaryScriptUri": "aoArm/deploymentScript/AzDevOps-Deploy.ps1",
                 "arguments": "",
                 "azPowerShellVersion": "6.3",
-            "timeout": "PT30M",
-            "cleanupPreference": "Always",
-            "retentionInterval": "P1D"
+                "timeout": "PT30M",
+                "cleanupPreference": "Always",
+                "retentionInterval": "P1D"
+            }
+        }
+    ],
+    "outputs": {
+        "deployment": {
+            "type": "string",
+            "value": "[concat(deployment().name, ' has successfully deployed. Welcome to AlwaysOn!')]"
         }
     }
-],
-"outputs": {
-    "deployment": {
-        "type": "string",
-        "value": "[concat(deployment().name, ' has successfully deployed. Welcome to AlwaysOn!')]"
-    }
-}
 }
