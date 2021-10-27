@@ -59,7 +59,7 @@
                             }
                         },
                         {
-                            "name": "aoSubSection",
+                            "name": "aoSub",
                             "type": "Microsoft.Common.Section",
                             "label": "AlwaysOn subscription",
                             "elements": [
