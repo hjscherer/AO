@@ -68,7 +68,7 @@
             "dependsOn": [
             ],
             "properties": {
-                "primaryScriptUri": "aoArm/deploymentScript/AzDevOps-Deploy.ps1",
+                "primaryScriptUri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Deploy.ps1",
                 "arguments": "",
                 "azPowerShellVersion": "6.3",
                 "timeout": "PT30M",
