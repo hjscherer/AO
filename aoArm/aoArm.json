@@ -37,7 +37,7 @@
         "subscriptionId": {}
     },
     "variables": {
-        "userManagedIdentityName": "[concat(resourceGroup().name, '-umi')]",
+        "userManagedIdentityName": "[concat(resourceGroup().name, '-umi')]"
     },
     "resources": [
         {
