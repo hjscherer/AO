@@ -29,10 +29,6 @@
                             },
                             "visible": true
                         }
-                        /*{
-                            "name": "resourceScope",
-                            "type": "Microsoft.Common.ResourceScope"
-                        }*/
                     ]
                 },
                 {
