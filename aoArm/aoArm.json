@@ -34,7 +34,10 @@
             "type": "securestring",
             "defaultValue": ""
         },
-        "subscriptionId": {}
+        "subscriptionId": {
+            "type": "string",
+            "defaultValue": ""
+        }
     },
     "variables": {
 
@@ -50,7 +53,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-05-01",
-            "name": "ado-dployment-name",
+            "name": "new-name",
             "resourceGroup": "ao-pipeline-rg",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/resourceGroups/', 'ao-pipeline-rg')]"

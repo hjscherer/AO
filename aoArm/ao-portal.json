@@ -247,7 +247,7 @@
                 "paToken": "[steps('aoDevOps').aoPaToken]",
                 "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
             },
-            "kind": "Subscription",
+            "kind": "subscription",
             "location": "[steps('basics').resourceScope.location.name]"
         }
     }
