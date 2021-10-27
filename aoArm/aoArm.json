@@ -1,0 +1,100 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "principalId": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "appId":{
+            "type": "string",
+            "defaultValue": ""
+        },
+        "principalSecret":{
+            "type": "securestring",
+            "defaultValue": ""
+        },
+        "adoOrgName":
+        {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "adoProjectName":{
+            "type": "string",
+            "defaultValue": ""
+        },
+        "ghOrgName":{
+            "type": "string",
+            "defaultValue": ""
+        },
+        "ghRepoName":{
+            "type": "string",
+            "defaultValue": ""
+        },
+        "paToken":{
+            "type": "securestring",
+            "defaultValue": ""
+        },
+        "subscriptionId":{
+
+        }
+    },
+    "variables": {
+        "userManagedIdentityName": "[concat(resourceGroup().name, '-umi')]",
+
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "name": "ao-pipeline-rg",
+            "location": "[deployment().location]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "apiVersion": "2018-11-30",
+            "name": "[variables('userManagedIdentityName')]",
+            "location": "[deployment().location]"
+        },
+        {
+            "type": "Microsoft.Resources/deploymentScripts",
+            "apiVersion": "2020-10-01",
+            "name": "[concat(resourceGroup().name, '-Ado')]",
+            "location": "[resourceGroup().location]",
+            "kind": "AzurePowerShell",
+            "identity": {
+                "type": "userAssigned",
+                "userAssignedIdentities": {
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userManagedIdentityName'))]": {}
+                }
+            },
+            "dependsOn": [
+                // "[resourceId('Microsoft.KeyVault/vaults/providers/roleAssignments', variables('keyVaultName'), 'Microsoft.Authorization', guid(variables('keyVaultName')))]",
+                // "[resourceId('Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('patSecretName'))]",
+                // "[resourceId('Microsoft.KeyVault/vaults/secrets', variables('keyVaultName'), variables('spnSecretName'))]"
+            ],
+            "properties": {
+                "primaryScriptUri": "aoArm/deploymentScript/AzDevOps-Deploy.ps1",
+                "arguments": "[concat('-NewRepositoryName', ' ', parameters('repositoryName'), ' ',
+                                      '-GitHubUserNameOrOrg', ' ', parameters('gitHubUserNameOrOrg'), ' ', 
+                                      '-SPNSecretName', ' ', variables('spnSecretName'), ' ',
+                                      '-SpnAppId', ' ', parameters('appId'), ' ',
+                                      '-PATSecretName', ' ', variables('patSecretName'), ' ',
+                                      '-AzureTenantId', ' ', subscription().tenantId, ' ',
+                                      '-EnterpriseScalePrefix', ' ', parameters('topLevelManagementGroupPrefix'), ' ',
+                                      '-AzureSubscriptionId', ' ', subscription().subscriptionId)]",
+                "azPowerShellVersion": "6.3",
+                "timeout": "PT30M",
+                "cleanupPreference": "Always",
+                "retentionInterval": "P1D"
+            }
+        }
+    ],
+    "outputs": {
+        "deployment": {
+            "type": "string",
+            "value": "[concat(deployment().name, ' has successfully deployed. Welcome to AlwaysOn!')]"
+        }
+    }
+}
