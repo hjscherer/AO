@@ -6,42 +6,38 @@
             "type": "array",
             "defaultValue": []
         },
-        "appId":{
+        "appId": {
             "type": "string",
             "defaultValue": ""
         },
-        "principalSecret":{
+        "principalSecret": {
             "type": "securestring",
             "defaultValue": ""
         },
-        "adoOrgName":
-        {
+        "adoOrgName": {
             "type": "string",
             "defaultValue": ""
         },
-        "adoProjectName":{
+        "adoProjectName": {
             "type": "string",
             "defaultValue": ""
         },
-        "ghOrgName":{
+        "ghOrgName": {
             "type": "string",
             "defaultValue": ""
         },
-        "ghRepoName":{
+        "ghRepoName": {
             "type": "string",
             "defaultValue": ""
         },
-        "paToken":{
+        "paToken": {
             "type": "securestring",
             "defaultValue": ""
         },
-        "subscriptionId":{
-
-        }
+        "subscriptionId": {}
     },
     "variables": {
         "userManagedIdentityName": "[concat(resourceGroup().name, '-umi')]",
-
     },
     "resources": [
         {
@@ -66,7 +62,7 @@
             "identity": {
                 "type": "userAssigned",
                 "userAssignedIdentities": {
-                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userManagedIdentityName'))]": {}
+                    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userManagedIdentityName'))]": {}
                 }
             },
             "dependsOn": [
@@ -83,18 +79,19 @@
                                       '-PATSecretName', ' ', variables('patSecretName'), ' ',
                                       '-AzureTenantId', ' ', subscription().tenantId, ' ',
                                       '-EnterpriseScalePrefix', ' ', parameters('topLevelManagementGroupPrefix'), ' ',
-                                      '-AzureSubscriptionId', ' ', subscription().subscriptionId)]",
+                                      '-AzureSubscriptionId', ' ', subscription().subscriptionId)
+            ]",
                 "azPowerShellVersion": "6.3",
-                "timeout": "PT30M",
-                "cleanupPreference": "Always",
-                "retentionInterval": "P1D"
-            }
-        }
-    ],
-    "outputs": {
-        "deployment": {
-            "type": "string",
-            "value": "[concat(deployment().name, ' has successfully deployed. Welcome to AlwaysOn!')]"
+            "timeout": "PT30M",
+            "cleanupPreference": "Always",
+            "retentionInterval": "P1D"
         }
     }
+],
+"outputs": {
+    "deployment": {
+        "type": "string",
+        "value": "[concat(deployment().name, ' has successfully deployed. Welcome to AlwaysOn!')]"
+    }
+}
 }
