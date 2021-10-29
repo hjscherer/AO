@@ -170,10 +170,6 @@
                 {
                     "name": "aoSettings",
                     "label": "AlwaysOn core setup",
-                    "subLabel": {
-                        "preValidation": "Provide a AlwaysOn prefix for the resource groups the deployment pipelines will created.",
-                        "postValidation": "Done"
-                    },
                     "bladeTitle": "AlwaysOn prefix",
                     "elements": [
                         {
@@ -204,7 +200,7 @@
                             }
                         },
                         {
-                            "name": "aoResourceGroupPrefix",
+                            "name": "aoPrefix",
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn Resource Group prefix",
                             "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
@@ -220,7 +216,7 @@
                             "type": "Microsoft.Common.DropDown",
                             "label": "AlwaysOn deployment locations",
                             "placeholder": "",
-                            "defaultValue": "Value two",
+                            "defaultValue": "",
                             "toolTip": "",
                             "multiselect": true,
                             "selectAll": true,
@@ -341,10 +337,10 @@
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
                 "paToken": "[steps('aoDevOps').aoPaToken]",
-                "prefix": "[steps('aoSettings').aoResourceGroupPrefix]",
+                "prefix": "[steps('aoSettings').aoPrefix]",
                 "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
             },
-            "kind": "Subscription",
+            "kind": "subscription",
             "location": "[steps('basics').resourceScope.location.name]"
         }
     }
