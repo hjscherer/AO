@@ -35,6 +35,11 @@
                             }
                         },
                         {
+                            "type":"Microsoft.Common.SubscriptionSelector",
+                            "name": "aoSub",
+                            "label": "AlwaysOn subscription"
+                        },
+                        {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "visible": true,
@@ -337,7 +342,7 @@
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
                 "paToken": "[steps('aoDevOps').aoPaToken]",
                 "prefix": "[steps('aoSettings').aoResourceGroupPrefix]",
-                "subscriptionId": ""
+                "subscriptionId": "[steps('aoSettings').aoSub]"
             },
             "kind": "subscription",
             "location": "[steps('basics').resourceScope.location.name]"
