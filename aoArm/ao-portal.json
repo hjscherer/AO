@@ -337,7 +337,7 @@
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
                 "paToken": "[steps('aoDevOps').aoPaToken]",
                 "prefix": "[steps('aoSettings').aoResourceGroupPrefix]",
-                "subscriptionId": "[subscription()]"
+                "subscriptionId": ""
             },
             "kind": "subscription",
             "location": "[steps('basics').resourceScope.location.name]"
