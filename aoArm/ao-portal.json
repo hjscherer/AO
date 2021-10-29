@@ -19,7 +19,7 @@
                     "name": "aoSettings",
                     "label": "AlwaysOn core setup",
                     "subLabel": {
-                        "preValidation": "Provide a AlwaysOn prefix for the reource groups the deployment pipelines will created.",
+                        "preValidation": "Provide a AlwaysOn prefix for the resource groups the deployment pipelines will created.",
                         "postValidation": "Done"
                     },
                     "bladeTitle": "AlwaysOn prefix",
@@ -39,7 +39,7 @@
                             "type": "Microsoft.Common.TextBlock",
                             "visible": true,
                             "options": {
-                                "text": "AlwaysOn prefix for all pipelines",
+                                "text": "AlwaysOn core services:",
                                 "link": {
                                     "label": "Learn more",
                                     "uri": ""
@@ -50,14 +50,41 @@
                             "name": "aoResourceGroupPrefix",
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn Resource Group prefix",
-                            "toolTip": "Provide a prefix (max 5 characters) for the Management Group hierarchy and other resources created as part of Enterprise-scale.",
+                            "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
                             "defaultValue": "",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
                                 "validationMessage": "The prefix must be 1-5 characters."
                             }
-                        }
+                        },
+                        {
+                            "name": "aoLocations",
+                            "type": "Microsoft.Common.DropDown",
+                            "label": "AlwaysOn deployment locations",
+                            "placeholder": "",
+                            "defaultValue": "Value two",
+                            "toolTip": "",
+                            "multiselect": true,
+                            "selectAll": true,
+                            "filter": true,
+                            "filterPlaceholder": "Filter locations ...",
+                            "multiLine": false,
+                            "defaultDescription": "A value for selection",
+                            "constraints": {
+                                "allowedValues": [
+                                    {
+                                        "label": "North Europe",
+                                        "value": "northeurope"
+                                    },
+                                    {
+                                        "label": "West Europe",
+                                        "value": "westeurope"
+                                    }
+                                ],
+                                "required": true
+                            },
+                            "visible": true                        }
                     ]
                 },
                 {
@@ -214,19 +241,19 @@
                 },
                 {
                     "name": "aoSolution",
-                    "label": "AlwaysOn Solution",
+                    "label": "AlwaysOn Solution Industry Settings",
                     "subLabel": {},
-                    "bladeTitle": "AlwaysOn Solution",
+                    "bladeTitle": "AlwaysOn Solution Industry Settings",
                     "elements": [
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "visible": true,
                             "options": {
-                                "text": "AlwaysOn prefix for all pipelines",
+                                "text": "AlwaysOn for the game industry depends on the following additional Azure services. The pipeline will configure this services for initial use.",
                                 "link": {
                                     "label": "Learn more",
-                                    "uri": ""
+                                    "uri": "https://github.com/azure/alwayson"
                                 }
                             }
                         },
