@@ -340,7 +340,6 @@
                 "prefix": "[steps('aoSettings').aoPrefix]",
                 "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
             },
-            "kind": "subscription",
             "location": "[steps('basics').resourceScope.location.name]"
         }
     }
