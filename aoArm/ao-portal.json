@@ -344,7 +344,7 @@
                 "prefix": "[steps('aoSettings').aoResourceGroupPrefix]",
                 "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
             },
-            "kind": "subscription",
+            "kind": "Subscription",
             "location": "[steps('basics').resourceScope.location.name]"
         }
     }
