@@ -317,7 +317,7 @@
                             "defaultValue": "",
                             "constraints": {
                                 "required": true,
-                                "regex": "^[a-z0-9A-Z-]$",
+                                "regex": "^[a-z0-9A-Z]$",
                                 "validationMessage": "Please provide a valid Azure AD tenant name."
                             }
                         }
