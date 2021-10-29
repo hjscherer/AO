@@ -55,16 +55,16 @@
             "location": "[deployment().location]",
             "properties": {}
         },
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2020-10-01-preview",
-            "name": "[guid(concat(parameters('prefix'), variables('ownerRoleDefinitionId')))]",
-            "properties": {
-                "principalType": "ServicePrincipal",
-                "roleDefinitionId": "[variables('ownerRoleDefinitionId')]",
-                "principalId": "[parameters('principalId')]"
-            }
-        },
+        // {
+        //    "type": "Microsoft.Authorization/roleAssignments",
+        //    "apiVersion": "2020-10-01-preview",
+        //    "name": "[guid(concat(parameters('prefix'), variables('ownerRoleDefinitionId')))]",
+        //    "properties": {
+        //        "principalType": "ServicePrincipal",
+        //        "roleDefinitionId": "[variables('ownerRoleDefinitionId')]",
+        //        "principalId": "[parameters('principalId')]"
+        //    }
+        //},
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-05-01",
