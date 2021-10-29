@@ -29,7 +29,7 @@
                             "type": "Microsoft.Common.InfoBox",
                             "visible": true,
                             "options": {
-                                "text": "AlwaysOn will use this prefix for all resoruce groups this AlwaysOn deployment will use.",
+                                "text": "AlwaysOn will use this prefix for all resource groups.",
                                 "uri": "",
                                 "style": "Info"
                             }
@@ -47,7 +47,7 @@
                             }
                         },
                         {
-                            "name": "aoResourceGroup",
+                            "name": "aoResourceGroupPrefix",
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn Resource Group prefix",
                             "toolTip": "Provide a prefix (max 5 characters) for the Management Group hierarchy and other resources created as part of Enterprise-scale.",
@@ -62,9 +62,9 @@
                 },
                 {
                     "name": "aoDevOps",
-                    "label": "AlwaysOn DevOps and automation",
+                    "label": "AlwaysOn DevOps",
                     "subLabel": {},
-                    "bladeTitle": "ao Dev Ops",
+                    "bladeTitle": "AlwaysOn DevOps",
                     "elements": [
                         {
                             "name": "info",
@@ -211,6 +211,39 @@
                             "visible": true
                         }
                     ]
+                },
+                {
+                    "name": "aoSolution",
+                    "label": "AlwaysOn Solution",
+                    "subLabel": {},
+                    "bladeTitle": "AlwaysOn Solution",
+                    "elements": [
+                        {
+                            "name": "resourceGroup",
+                            "type": "Microsoft.Common.TextBlock",
+                            "visible": true,
+                            "options": {
+                                "text": "AlwaysOn prefix for all pipelines",
+                                "link": {
+                                    "label": "Learn more",
+                                    "uri": ""
+                                }
+                            }
+                        },
+                        {
+                            "name": "aoB2ctenantName",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "AlwaysOn Azure AD B2C tenant name",
+                            "toolTip": "Provide a globaly unique tenant name. '.onmicrosoft.com' will be added when it is created.",
+                            "defaultValue": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "^[a-z0-9A-Z-]$",
+                                "validationMessage": "Please provide a valid Azure AD tenant name."
+                            }
+                        }
+
+                    ]
                 }
             ]
         },
@@ -223,7 +256,8 @@
                 "adoProjectName": "[steps('aoDevOps').aoAdoProjectName]",
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
-                "paToken": "[steps('aoDevOps').aoPaToken]"
+                "paToken": "[steps('aoDevOps').aoPaToken]",
+                "prefix": "[steps('aoSettings').aoResourceGroupPrefix]"
             },
             "kind": "subscription",
             "location": "[steps('basics').resourceScope.location.name]"
