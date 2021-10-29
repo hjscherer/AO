@@ -16,135 +16,6 @@
                     ]
                 },
                 {
-                    "name": "aoSettings",
-                    "label": "AlwaysOn core setup",
-                    "subLabel": {
-                        "preValidation": "Provide a AlwaysOn prefix for the resource groups the deployment pipelines will created.",
-                        "postValidation": "Done"
-                    },
-                    "bladeTitle": "AlwaysOn prefix",
-                    "elements": [
-                        {
-                            "name": "info",
-                            "type": "Microsoft.Common.InfoBox",
-                            "visible": true,
-                            "options": {
-                                "text": "AlwaysOn will use this prefix for all resource groups.",
-                                "uri": "",
-                                "style": "Info"
-                            }
-                        },
-                        {
-                            "type":"Microsoft.Common.SubscriptionSelector",
-                            "name": "aoSub",
-                            "label": "AlwaysOn subscription"
-                        },
-                        {
-                            "name": "resourceGroup",
-                            "type": "Microsoft.Common.TextBlock",
-                            "visible": true,
-                            "options": {
-                                "text": "AlwaysOn core services:",
-                                "link": {
-                                    "label": "Learn more",
-                                    "uri": ""
-                                }
-                            }
-                        },
-                        {
-                            "name": "aoResourceGroupPrefix",
-                            "type": "Microsoft.Common.TextBox",
-                            "label": "AlwaysOn Resource Group prefix",
-                            "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
-                            "defaultValue": "",
-                            "constraints": {
-                                "required": true,
-                                "regex": "^[a-z0-9A-Z-]{1,5}$",
-                                "validationMessage": "The prefix must be 1-5 characters."
-                            }
-                        },
-                        {
-                            "name": "aoLocations",
-                            "type": "Microsoft.Common.DropDown",
-                            "label": "AlwaysOn deployment locations",
-                            "placeholder": "",
-                            "defaultValue": "Value two",
-                            "toolTip": "",
-                            "multiselect": true,
-                            "selectAll": true,
-                            "filter": true,
-                            "filterPlaceholder": "Filter Azure regions...",
-                            "multiLine": false,
-                            "defaultDescription": "",
-                            "constraints": {
-                                "allowedValues": [
-                                    {
-                                        "label": "North Europe",
-                                        "value": "northeurope"
-                                    },
-                                    {
-                                        "label": "West Europe",
-                                        "value": "westeurope"
-                                    },
-                                    {
-                                        "label": "Germany West Central",
-                                        "value": "germanywestcentral"
-                                    },
-                                    {
-                                        "label": "France Central",
-                                        "value": "francecentral"
-                                    },
-                                    {
-                                        "label": "UK South",
-                                        "value": "uksouth"
-                                    },
-                                    {
-                                        "label": "West US 2",
-                                        "value": "westus2"
-                                    },
-                                    {
-                                        "label": "East US",
-                                        "value": "eastus"
-                                    },
-                                    {
-                                        "label": "East US 2",
-                                        "value": "eastus2"
-                                    },
-                                    {
-                                        "label": "Centrak US",
-                                        "value": "centralus"
-                                    },
-                                    {
-                                        "label": "South Central US",
-                                        "value": "southcentralus"
-                                    },
-                                    {
-                                        "label": "Brazil South",
-                                        "value": "brazilsouth"
-                                    },
-                                    {
-                                        "label": "Canada Central",
-                                        "value": "canadacentral"
-                                    },
-                                    {
-                                        "label": "Australia East",
-                                        "value": "australiaeast"
-                                    },
-                                    {
-                                        "label": "South East Asia",
-                                        "value": "southeastasia"
-                                    },
-                                    {
-                                        "label": "Japan East",
-                                        "value": "japaneast"
-                                    }
-                                ],
-                                "required": true
-                            },
-                            "visible": true                        }
-                    ]
-                },
-                {
                     "name": "aoDevOps",
                     "label": "AlwaysOn DevOps",
                     "subLabel": {},
@@ -294,6 +165,135 @@
                             ],
                             "visible": true
                         }
+                    ]
+                },
+                {
+                    "name": "aoSettings",
+                    "label": "AlwaysOn core setup",
+                    "subLabel": {
+                        "preValidation": "Provide a AlwaysOn prefix for the resource groups the deployment pipelines will created.",
+                        "postValidation": "Done"
+                    },
+                    "bladeTitle": "AlwaysOn prefix",
+                    "elements": [
+                        {
+                            "name": "info",
+                            "type": "Microsoft.Common.InfoBox",
+                            "visible": true,
+                            "options": {
+                                "text": "AlwaysOn will use this prefix for all resource groups.",
+                                "uri": "",
+                                "style": "Info"
+                            }
+                        },
+                        {
+                            "type":"Microsoft.Common.SubscriptionSelector",
+                            "name": "aoSub",
+                            "label": "AlwaysOn subscription"
+                        },
+                        {
+                            "name": "resourceGroup",
+                            "type": "Microsoft.Common.TextBlock",
+                            "visible": true,
+                            "options": {
+                                "text": "AlwaysOn core services:",
+                                "link": {
+                                    "label": "Learn more",
+                                    "uri": ""
+                                }
+                            }
+                        },
+                        {
+                            "name": "aoResourceGroupPrefix",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "AlwaysOn Resource Group prefix",
+                            "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
+                            "defaultValue": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "^[a-z0-9A-Z-]{1,5}$",
+                                "validationMessage": "The prefix must be 1-5 characters."
+                            }
+                        },
+                        {
+                            "name": "aoLocations",
+                            "type": "Microsoft.Common.DropDown",
+                            "label": "AlwaysOn deployment locations",
+                            "placeholder": "",
+                            "defaultValue": "Value two",
+                            "toolTip": "",
+                            "multiselect": true,
+                            "selectAll": true,
+                            "filter": true,
+                            "filterPlaceholder": "Filter Azure regions...",
+                            "multiLine": false,
+                            "defaultDescription": "",
+                            "constraints": {
+                                "allowedValues": [
+                                    {
+                                        "label": "North Europe",
+                                        "value": "northeurope"
+                                    },
+                                    {
+                                        "label": "West Europe",
+                                        "value": "westeurope"
+                                    },
+                                    {
+                                        "label": "Germany West Central",
+                                        "value": "germanywestcentral"
+                                    },
+                                    {
+                                        "label": "France Central",
+                                        "value": "francecentral"
+                                    },
+                                    {
+                                        "label": "UK South",
+                                        "value": "uksouth"
+                                    },
+                                    {
+                                        "label": "West US 2",
+                                        "value": "westus2"
+                                    },
+                                    {
+                                        "label": "East US",
+                                        "value": "eastus"
+                                    },
+                                    {
+                                        "label": "East US 2",
+                                        "value": "eastus2"
+                                    },
+                                    {
+                                        "label": "Centrak US",
+                                        "value": "centralus"
+                                    },
+                                    {
+                                        "label": "South Central US",
+                                        "value": "southcentralus"
+                                    },
+                                    {
+                                        "label": "Brazil South",
+                                        "value": "brazilsouth"
+                                    },
+                                    {
+                                        "label": "Canada Central",
+                                        "value": "canadacentral"
+                                    },
+                                    {
+                                        "label": "Australia East",
+                                        "value": "australiaeast"
+                                    },
+                                    {
+                                        "label": "South East Asia",
+                                        "value": "southeastasia"
+                                    },
+                                    {
+                                        "label": "Japan East",
+                                        "value": "japaneast"
+                                    }
+                                ],
+                                "required": true
+                            },
+                            "visible": true                        }
                     ]
                 },
                 {
