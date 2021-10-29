@@ -5,32 +5,20 @@
 
     },
     "variables": {
-        "userManagedIdentityName": "[concat('test', '-umi')]"
+
     },
     "resources": [
-        {
-            "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-            "apiVersion": "2018-11-30",
-            "name": "[variables('userManagedIdentityName')]",
-            "location": "[resourceGroup().location]"
-        },
         {
             "type": "Microsoft.Resources/deploymentScripts",
             "apiVersion": "2020-10-01",
             "name": "[concat(resourceGroup().name, '-ado')]",
             "location": "[resourceGroup().location]",
             "kind": "AzurePowerShell",
-            "identity": {
-                "type": "userAssigned",
-                "userAssignedIdentities": {
-                    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userManagedIdentityName'))]": {}
-                }
-            },
             "dependsOn": [],
             "properties": {
                 "primaryScriptUri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Deploy.ps1",
                 "arguments": "",
-                "azPowerShellVersion": "6.3",
+                "azPowerShellVersion": "6.O",
                 "timeout": "PT30M",
                 "cleanupPreference": "Always",
                 "retentionInterval": "P1D"
