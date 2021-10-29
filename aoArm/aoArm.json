@@ -62,7 +62,7 @@
             "properties": {
                 "principalType": "ServicePrincipal",
                 "roleDefinitionId": "[variables('ownerRoleDefinitionId')]",
-                "principalId": "[parameters('principalId')]"
+                "principalId": "[parameters('principalId')[0]]"
             }
         },
         {
