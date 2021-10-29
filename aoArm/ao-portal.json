@@ -329,16 +329,7 @@
         },
         "outputs": {
             "parameters": {
-                "principalId": "[steps('aoDevOps').spnSection.aoServicePrincipal.objectId]",
-                "appId": "[steps('aoDevOps').spnSection.aoServicePrincipal.appId]",
-                "principalSecret": "[steps('aoDevOps').spnSection.aoServicePrincipal.password]",
-                "adoOrgName": "[steps('aoDevOps').aoAdoOrg]",
-                "adoProjectName": "[steps('aoDevOps').aoAdoProjectName]",
-                "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
-                "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
-                "paToken": "[steps('aoDevOps').aoPaToken]",
-                "prefix": "[steps('aoSettings').aoPrefix]",
-                "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
+                
             },
             "kind": "subscription",
             "location": "[steps('basics').resourceScope.location.name]"
