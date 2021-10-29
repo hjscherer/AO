@@ -5,9 +5,15 @@
 
     },
     "variables": {
-
+        "userManagedIdentityName": "[concat('test', '-umi')]"
     },
     "resources": [
+        {
+            "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "apiVersion": "2018-11-30",
+            "name": "[variables('userManagedIdentityName')]",
+            "location": "[resourceGroup().location]"
+        },
         {
             "type": "Microsoft.Resources/deploymentScripts",
             "apiVersion": "2020-10-01",
@@ -18,7 +24,7 @@
             "properties": {
                 "primaryScriptUri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Deploy.ps1",
                 "arguments": "",
-                "azPowerShellVersion": "6.O",
+                "azPowerShellVersion": "6.3",
                 "timeout": "PT30M",
                 "cleanupPreference": "Always",
                 "retentionInterval": "P1D"
