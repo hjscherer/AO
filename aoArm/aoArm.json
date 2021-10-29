@@ -37,6 +37,10 @@
         "prefix": {
             "type": "string",
             "defaultValue": ""
+        },
+        "subscriptionId": {
+            "type": "string",
+            "defaultValue": ""
         }
     },
     "variables": {
