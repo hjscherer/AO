@@ -346,7 +346,7 @@
             },
             "kind": "Subscription",
             "location": "[steps('basics').resourceScope.location.name]",
-            "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
+            "subscriptionId": "[steps('basics').resourceScope.subscription.id]"
         }
     }
 }
