@@ -327,7 +327,7 @@
                 }
             ]
         },
-        "output": {
+        "outputs": {
             "parameters": {
                 "principalId": "[steps('aoDevOps').spnSection.aoServicePrincipal.objectId]",
                 "appId": "[steps('aoDevOps').spnSection.aoServicePrincipal.appId]",
@@ -338,10 +338,10 @@
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
                 "paToken": "[steps('aoDevOps').aoPaToken]",
                 "prefix": "[steps('aoSettings').aoPrefix]",
-                "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
+                "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]",
+                "location": "[steps('basics').resourceScope.location.id]"
             },
             "kind": "Subscription",
-            "location": "[steps('basics').resourceScope.location.id]",
             "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
         }
     }
