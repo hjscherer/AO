@@ -339,10 +339,10 @@
                 "paToken": "[steps('aoDevOps').aoPaToken]",
                 "prefix": "[steps('aoSettings').aoPrefix]",
                 "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]",
-                "location": "[steps('basics').resourceScope.location.id]"
+                "location": "[steps('basics').resourceScope.location.name]"
             },
             "kind": "Subscription",
-            "location": "[steps('basics').resourceScope.location.id]",
+            "location": "[steps('basics').resourceScope.location.name]",
             "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
         }
     }
