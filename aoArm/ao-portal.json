@@ -340,7 +340,7 @@
                 "prefix": "[steps('aoSettings').aoPrefix]",
                 "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
             },
-            "kind": "tenant",
+            "kind": "Tenant",
             "location": "[steps('basics').resourceScope.location.name]"
         }
     }
