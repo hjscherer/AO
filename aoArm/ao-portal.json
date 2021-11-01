@@ -337,10 +337,10 @@
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
                 "paToken": "[steps('aoDevOps').aoPaToken]",
-                "prefix": "[steps('aoSettings').aoPrefix]",
-                "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]"
+                "prefix": "[steps('aoSettings').aoPrefix]"
             },
-            "kind": "Tenant",
+            "kind": "Subscription",
+            "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]",
             "location": "[steps('basics').resourceScope.location.name]"
         }
     }
