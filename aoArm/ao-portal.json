@@ -7,7 +7,7 @@
             "steps": [
                 {
                     "name": "basics",
-                    "label": "Deployment location1",
+                    "label": "Deployment location",
                     "elements": [
                         {
                             "name": "resourceScope",
@@ -186,11 +186,6 @@
                             }
                         },
                         {
-                            "type":"Microsoft.Common.SubscriptionSelector",
-                            "name": "aoSub",
-                            "label": "AlwaysOn subscription"
-                        },
-                        {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "visible": true,
@@ -341,8 +336,7 @@
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
                 "paToken": "[steps('aoDevOps').aoPaToken]",
                 "prefix": "[steps('aoSettings').aoPrefix]",
-                "subscriptionId": "[steps('aoSettings').aoSub.subscriptionId]",
-                "location": "[steps('basics').resourceScope.location.name]"
+                "subscriptionId": "[steps('basics').resourceScope.subscription.id]"
             },
             "kind": "Subscription",
             "location": "[steps('basics').resourceScope.location.name]",
