@@ -331,7 +331,7 @@
                 "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
             },
             "kind": "Subscription",
-            "location": "northeurope",
+            "location": "[steps('aoSettings').aoLocations[0].value]",
             "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
         }
     }
