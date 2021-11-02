@@ -159,14 +159,9 @@
                 },
                 {
                     "name": "aoSettings",
-                    "label": "AlwaysOn core setup",
+                    "label": "AlwaysOn INT setup",
                     "bladeTitle": "AlwaysOn prefix",
                     "elements": [
-                        {
-                            "type":"Microsoft.Common.SubscriptionSelector",
-                            "name": "aoSub",
-                            "label": "Single platform subscription"
-                        },
                         {
                             "name": "info",
                             "type": "Microsoft.Common.InfoBox",
@@ -176,6 +171,11 @@
                                 "uri": "",
                                 "style": "Info"
                             }
+                        },
+                        {
+                            "type":"Microsoft.Common.SubscriptionSelector",
+                            "name": "aoSub",
+                            "label": "Single platform subscription"
                         },
                         {
                             "name": "resourceGroup",
@@ -192,7 +192,7 @@
                         {
                             "name": "aoPrefix",
                             "type": "Microsoft.Common.TextBox",
-                            "label": "AlwaysOn Resource Group prefix",
+                            "label": "AlwaysOn prefix",
                             "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
                             "defaultValue": "",
                             "constraints": {
