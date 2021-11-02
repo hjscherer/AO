@@ -283,6 +283,13 @@
                     ]
                 },
                 {
+                    "name": "aoProdSettings",
+                    "label": "AlwaysOn PROD setup",
+                    "bladeTitle": "AlwaysOn prefix",
+                    "elements": [
+                    ]
+                },
+                {
                     "name": "aoSolution",
                     "label": "AlwaysOn Solution Industry Settings",
                     "subLabel": {},
