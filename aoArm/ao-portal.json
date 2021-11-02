@@ -168,26 +168,6 @@
                             "label": "Single platform subscription"
                         },
                         {
-                            "name": "aoDeploymentLocationsApi",
-                            "type": "Microsoft.Solutions.ArmApiControl",
-                            "request": {
-                                "method": "GET",
-                                "path": "locations?api-version=2019-11-01"
-                            }
-                        },
-                        {
-                            "name": "aoDeploymentLocation",
-                            "type": "Microsoft.Common.Section",
-                            "label": "Deployment location",
-                            "filter": true,
-                            "toolTip": "Select the deployment location",
-                            "constraints": {
-                                "allowedValues": "[map(steps('esConnectivityGoalState').esLocationsApi.value,(item) => parse(concat('{\"label\":\"',item.displayName,'\",\"value\":\"',item.name,'\"}')))]",
-                                "required": true
-                            },
-                            "visible": "true"
-                        },
-                        {
                             "name": "info",
                             "type": "Microsoft.Common.InfoBox",
                             "visible": true,
@@ -351,7 +331,7 @@
                 "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
             },
             "kind": "Subscription",
-            "location": "[steps('aoSettings').aoDeploymentLocation.value]",
+            "location": "northeurope",
             "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
         }
     }
