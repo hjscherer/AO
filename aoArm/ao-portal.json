@@ -448,8 +448,7 @@
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
                 "paToken": "[steps('aoDevOps').aoPaToken]",
                 "prefix": "[steps('aoSettings').aoPrefix]",
-                "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]",
-                "location": "northeurope"
+                "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
             },
             "kind": "Subscription",
             "subscriptionId": "a7febacc-fd25-4460-b9d8-d8ef02b25246",
