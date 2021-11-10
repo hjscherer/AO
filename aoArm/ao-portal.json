@@ -7,7 +7,7 @@
             "steps": [
                 {
                     "name": "aoDevOps",
-                    "label": "AlwaysOn DevOps1",
+                    "label": "AlwaysOn DevOps",
                     "subLabel": {},
                     "bladeTitle": "AlwaysOn DevOps",
                     "elements": [
@@ -451,7 +451,7 @@
                 "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
             },
             "kind": "Subscription",
-            "location": "northeurope",
+            "location": "North Europe",
             "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
         }
     }
