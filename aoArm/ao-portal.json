@@ -455,7 +455,7 @@
             },
             "kind": "Subscription",
             "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]",
-            "location": "vanortheurope"            
+            "location": "North Europe"            
         }
     }
 }
