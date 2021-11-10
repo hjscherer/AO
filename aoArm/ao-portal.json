@@ -175,7 +175,7 @@
                         {
                             "type":"Microsoft.Common.SubscriptionSelector",
                             "name": "aoSub",
-                            "label": "Single platform subscription"
+                            "label": "AO subscription"
                         },
                         {
                             "name": "resourceGroup",
@@ -451,8 +451,8 @@
                 "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
             },
             "kind": "Subscription",
-            "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]",
-            "location": "North Europe"
+            "subscriptionId": "a7febacc-fd25-4460-b9d8-d8ef02b25246",
+            "location": "northeurope"
             
         }
     }
