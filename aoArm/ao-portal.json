@@ -6,6 +6,16 @@
             "title": "AlwaysOn accelerator",
             "steps": [
                 {
+                    "name": "basics",
+                    "label": "Deployment location",
+                    "elements": [
+                        {
+                            "name": "resourceScope",
+                            "type": "Microsoft.Common.ResourceScope"
+                        }
+                    ]
+                },
+                {
                     "name": "aoDevOps",
                     "label": "AlwaysOn DevOps",
                     "subLabel": {},
@@ -455,7 +465,7 @@
             },
             "kind": "Subscription",
             "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]",
-            "location": "North Europe"            
+            "location": "[steps('basics').resourceScope.location.name]"            
         }
     }
 }
