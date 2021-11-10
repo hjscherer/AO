@@ -37,7 +37,7 @@
                             "name": "aoPlOptions",
                             "type": "Microsoft.Common.OptionsGroup",
                             "label": "Select CICD option",
-                            "defaultValue": "Azure DevOps Pipelines",
+                            "defaultValue": "adoDevOpsPipelines",
                             "toolTip": "AlwaysOn will provide options for Azure DevOps Pipelines. Additional options such as GitHub actions will be added in the future.",
                             "constraints": {
                                 "allowedValues": [
@@ -56,7 +56,7 @@
                             "label": "Select an existing Azure DevOps organization name",
                             "toolTip": "Provide Azure DevOps organization name.",
                             "visible": true,
-                            "defaultValue": "",
+                            "defaultValue": "sd",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,50}$",
@@ -68,7 +68,7 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "New Azure DevOps project name",
                             "toolTip": "Provide a name for the new repository that will be created",
-                            "defaultValue": "",
+                            "defaultValue": "sd",
                             "visible": true,
                             "placeholder": "",
                             "constraints": {
@@ -83,7 +83,7 @@
                             "label": "GitHub organization or username",
                             "toolTip": "Provide an exiting GitHub org/username.",
                             "visible": true,
-                            "defaultValue": "",
+                            "defaultValue": "sd",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,39}$",
@@ -95,7 +95,7 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "New GitHub repository name",
                             "toolTip": "Provide a name for the new repository that will be created",
-                            "defaultValue": "",
+                            "defaultValue": "sd",
                             "visible": true,
                             "placeholder": "",
                             "constraints": {
@@ -180,6 +180,7 @@
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
+                            "defaultValue": "sd",
                             "visible": true,
                             "options": {
                                 "text": "AlwaysOn deployment:",
@@ -194,7 +195,7 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn prefix",
                             "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
-                            "defaultValue": "",
+                            "defaultValue": "sd",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
@@ -206,7 +207,7 @@
                             "type": "Microsoft.Common.DropDown",
                             "label": "AlwaysOn deployment locations",
                             "placeholder": "",
-                            "defaultValue": "",
+                            "defaultValue": "francecentral",
                             "toolTip": "",
                             "multiselect": true,
                             "selectAll": true,
@@ -301,6 +302,7 @@
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "visible": true,
+                            "defaultValue": "sd",
                             "options": {
                                 "text": "AlwaysOn deployment:",
                                 "link": {
@@ -314,7 +316,7 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn prefix",
                             "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
-                            "defaultValue": "",
+                            "defaultValue": "sd",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
@@ -326,7 +328,7 @@
                             "type": "Microsoft.Common.DropDown",
                             "label": "AlwaysOn deployment locations",
                             "placeholder": "",
-                            "defaultValue": "",
+                            "defaultValue": "germanywestcentral",
                             "toolTip": "",
                             "multiselect": true,
                             "selectAll": true,
@@ -411,6 +413,7 @@
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
+                            "defaultValue": "sd",
                             "visible": true,
                             "options": {
                                 "text": "AlwaysOn for the game industry depends on the following additional Azure services. The pipeline will configure this services for initial use.",
@@ -425,7 +428,7 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn Azure AD B2C tenant name",
                             "toolTip": "Provide a globaly unique tenant name. '.onmicrosoft.com' will be added when it is created.",
-                            "defaultValue": "",
+                            "defaultValue": "sd",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,50}$",
