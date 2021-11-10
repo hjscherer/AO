@@ -37,7 +37,7 @@
                             "name": "aoPlOptions",
                             "type": "Microsoft.Common.OptionsGroup",
                             "label": "Select CICD option",
-                            "defaultValue": "adoDevOpsPipelines",
+                            "defaultValue": "Azure DevOps Pipelines",
                             "toolTip": "AlwaysOn will provide options for Azure DevOps Pipelines. Additional options such as GitHub actions will be added in the future.",
                             "constraints": {
                                 "allowedValues": [
@@ -207,7 +207,7 @@
                             "type": "Microsoft.Common.DropDown",
                             "label": "AlwaysOn deployment locations",
                             "placeholder": "",
-                            "defaultValue": "francecentral",
+                            "defaultValue": "France Central",
                             "toolTip": "",
                             "multiselect": true,
                             "selectAll": true,
@@ -328,7 +328,7 @@
                             "type": "Microsoft.Common.DropDown",
                             "label": "AlwaysOn deployment locations",
                             "placeholder": "",
-                            "defaultValue": "germanywestcentral",
+                            "defaultValue": "Germany West Central",
                             "toolTip": "",
                             "multiselect": true,
                             "selectAll": true,
@@ -455,7 +455,7 @@
             },
             "kind": "Subscription",
             "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]",
-            "location": "northeurope"            
+            "location": "vanortheurope"            
         }
     }
 }
