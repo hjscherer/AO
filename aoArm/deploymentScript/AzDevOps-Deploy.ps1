@@ -6,7 +6,6 @@
 # ##################################################
 # PARAMETERS
 
-[CmdletBinding()]
 param
 (
   # If not specified, this script will get it from authentication context. This is a GUID and you can get it from az account show -o tsv --query 'tenantId'
@@ -34,94 +33,8 @@ param
   # Username provisioned in AAD B2C to use for smoke tests
   [string] $SmokeTestUserName,
   # Hashtable of key-value pairs to add to the created Variable Group as individual Variables
-  $AzDevOpsVariables
+  #$AzDevOpsVariables
 )
-
-$DeploymentScriptOutputs = @{}
-
-Write-Host "The request has been accepted, but the processing has not been completed."
-
-# Adding sleep so that RBAC can propegate
-Start-Sleep -Seconds 500
-
-$ErrorActionPreference = "Continue"
-Install-Module -Name PowerShellForGitHub -Confirm:$false -Force
-Import-Module -Name PowerShellForGitHub
-
-# Authenticate against GitHub
-Try {
-  Write-Host "Authenticating to GitHub using PA token..."
-
-  Set-GitHubAuthentication -Credential $Cred
-}
-Catch {
-  $ErrorMessage = "Failed to authenticate to Git. Ensure you provided the correct PA Token for $($GitHubUserNameOrOrg)."
-  $ErrorMessage += " `n"
-  $ErrorMessage += 'Error: '
-  $ErrorMessage += $_
-  Write-Error -Message $ErrorMessage `
-              -ErrorAction Stop
-}
-
-Try {
-  Write-Host "Creating Git repository from template..."
-  Write-Host "Checking if repository already exists..."
-  # Creating GitHub repository based on Enterprise-Scale
-  $CheckIfRepoExists = @{
-      Uri     = "https://api.github.com/repos/$($GitHubUserNameOrOrg)/$($NewESLZRepository)"
-      Headers = @{
-          Authorization = "Token $($PATSecret)"
-          "Content-Type" = "application/json"
-          Accept = "application/vnd.github.v3+json"
-      }
-      Method = "GET"
-  }
-  $CheckExistence = Invoke-RestMethod @CheckIfRepoExists -ErrorAction Continue
-}
-Catch {
-  Write-Host "Repository doesn't exist, hence throwing a $($_.Exception.Response.StatusCode.Value__)"
-}
-
-if ([string]::IsNullOrEmpty($CheckExistence)) {
-  Try{
-      Write-Host "Moving on; creating the repository :-)"
-  
-      Get-GitHubRepository -OwnerName $ESLZGitHubOrg `
-                       -RepositoryName $ESLZRepository | New-GitHubRepositoryFromTemplate `
-                       -TargetRepositoryName $NewESLZRepository `
-                       -TargetOwnerName $GitHubUserNameOrOrg `
-                       -Private
-  }
-  Catch {
-      $ErrorMessage = "Failed to create Git repository for $($GitHubUserNameOrOrg)."
-      $ErrorMessage += " `n"
-      $ErrorMessage += 'Error: '
-      $ErrorMessage += $_
-      Write-Error -Message $ErrorMessage `
-                  -ErrorAction Stop
-  }
-  # Creating secrets for the Service Principal into GitHub
-  Try {
-      Write-host "Getting GitHub Public Key to create new secrets..."
-      
-      $GetPublicKey = @{
-          Uri     = "https://api.github.com/repos/$($GitHubUserNameOrOrg)/$($NewESLZRepository)/actions/secrets/public-key"
-          Headers = @{
-              Authorization = "Token $($PATSecret)"
-          }
-          Method = "GET"
-      }
-      $GitHubPublicKey = Invoke-RestMethod @GetPublicKey
-      }
-  Catch {
-      $ErrorMessage = "Failed to retrieve Public Key for $($GitHubUserNameOrOrg)."
-      $ErrorMessage += " `n"
-      $ErrorMessage += 'Error: '
-      $ErrorMessage += $_
-      Write-Error -Message $ErrorMessage `
-                  -ErrorAction Stop
-  }
-}
 
 # ##################################################
 
@@ -147,7 +60,8 @@ if (!$AzureTenantId -or !$AzureSubscriptionId) {
 }
 
 # GitHub repo URL assembled from passed account name and repo name
-[string] $githubRepoUrl = "https://github.com/${GithubAccountName}/${GithubRepoName}"
+# [string] $githubRepoUrl = "https://github.com/${GithubAccountName}/${GithubRepoName}"
+[string] $githubRepoUrl = "https://github.com/hjscherer/testaohjs01"
 
 # One of: "public", "private". Typically use "private" unless you need to make this Azure DevOps project visible outside your organization.
 [string] $AzDevOpsProjectVisibility = "private"
