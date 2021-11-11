@@ -38,6 +38,8 @@ param
 
 # ##################################################
 
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 # Set Azure CLI to auto install extensions
 az config set extension.use_dynamic_install=yes_without_prompt
 az config set extension.run_after_dynamic_install=$true
