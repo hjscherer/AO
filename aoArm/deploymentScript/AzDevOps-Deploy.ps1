@@ -60,8 +60,7 @@ if (!$AzureTenantId -or !$AzureSubscriptionId) {
 }
 
 # GitHub repo URL assembled from passed account name and repo name
-# [string] $githubRepoUrl = "https://github.com/${GithubAccountName}/${GithubRepoName}"
-[string] $githubRepoUrl = "https://github.com/hjscherer/testaohjs01"
+[string] $githubRepoUrl = "https://github.com/${GithubAccountName}/${GithubRepoName}"
 
 # One of: "public", "private". Typically use "private" unless you need to make this Azure DevOps project visible outside your organization.
 [string] $AzDevOpsProjectVisibility = "private"
