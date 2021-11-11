@@ -58,7 +58,7 @@
             "apiVersion": "2020-10-01",
             "name": "[concat(resourceGroup().name, '-ado')]",
             "location": "[resourceGroup().location]",
-            "kind": "AzureCLI",
+            "kind": "AzurePowerShell",
             "dependsOn": [],
             "properties": {
                 "primaryScriptUri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Deploy.ps1",
@@ -74,7 +74,7 @@
                                       '-GithubBranchName', ' ', 'new-test', ' ',
                                       '-SkipFirstPipelineRun', ' ', '$True' , ' ',
                                       '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",
-                "azCliVersion": "2.9.1",
+                "azPowerShellVersion": "6.3",
                 "supportingScriptUris": [
                     "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Functions.ps1"
                 ],
