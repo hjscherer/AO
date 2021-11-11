@@ -72,7 +72,7 @@
                                       '-GithubAccountName', ' ', 'hjscherer', ' ',
                                       '-GithubRepoName', ' ', 'ao-dummy', ' ',
                                       '-GithubBranchName', ' ', 'new-test', ' ',
-                                      '-SkipFirstPipelineRun', ' ', '$True' , ' ',
+                                      '-SkipFirstPipelineRun', ' ', bool('true') , ' ',
                                       '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",
                 "azPowerShellVersion": "6.3",
                 "supportingScriptUris": [
