@@ -63,7 +63,7 @@
             "properties": {
                 "primaryScriptUri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Deploy.ps1",
                 "arguments": "[concat('-AzureTenantId', ' ', '72f988bf-86f1-41af-91ab-2d7cd011db47', ' ',
-                                      '-AzureSubscriptionId', ' ', 'a7febacc-fd25-4460-b9d8-d8ef02b25246', ' ',
+                                      '-AzureSubscriptionId', ' ', subscription().subscriptionId, ' ',
                                       '-AzDevOpsOrgUrl', ' ', 'https://dev.azure.com/hscherer', ' ',
                                       '-AzDevOpsProjectName', ' ', 'AO-IAB3', ' ',
                                       '-AzDevOpsEnvironmentName' , ' ', 'e2e', ' ',
@@ -72,7 +72,7 @@
                                       '-GithubAccountName', ' ', 'hjscherer', ' ',
                                       '-GithubRepoName', ' ', 'ao-dummy', ' ',
                                       '-GithubBranchName', ' ', 'new-test', ' ',
-                                      '-SkipFirstPipelineRun', ' ', 'true', ' ',
+                                      '-SkipFirstPipelineRun', ' ', bool('true') , ' ',
                                       '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",
                 "azPowerShellVersion": "6.3",
                 "supportingScriptUris": [
