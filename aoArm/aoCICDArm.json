@@ -74,7 +74,7 @@
                                       '-GithubBranchName', ' ', 'new-test', ' ',
                                       '-SkipFirstPipelineRun', ' ', '$True' , ' ',
                                       '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",
-                "AzCliVersion": "2.15.0",
+                "AzCliVersion": "2.9.1",
                 "supportingScriptUris": [
                     "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Functions.ps1"
                 ],
