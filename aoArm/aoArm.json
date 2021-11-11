@@ -52,7 +52,7 @@
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2018-05-01",
             "name": "ao-pipeline-rg",
-            "location": "[deployment().location]",
+            "location": "northeurope",
             "properties": {}
         },
         {
