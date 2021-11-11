@@ -73,7 +73,7 @@
                                       '-GithubRepoName', ' ', 'ao-dummy', ' ',
                                       '-GithubBranchName', ' ', 'new-test', ' ',
                                       '-SkipFirstPipelineRun', ' ', 'true', ' ',
-                                      '-SmokeTestUserName', ' ', 'user@demo.always-on.app')]",
+                                      '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",
                 "azPowerShellVersion": "6.3",
                 "supportingScriptUris": [
                     "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Functions.ps1"
