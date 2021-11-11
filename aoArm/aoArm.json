@@ -56,7 +56,7 @@
             "properties": {}
         },
         {
-           "type": "Microsoft.Authorization/roleAssignments",
+            "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2020-10-01-preview",
             "name": "[guid(concat(parameters('prefix'), variables('ownerRoleDefinitionId')))]",
             "properties": {
@@ -80,6 +80,36 @@
                     "uri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/aoCICDArm.json"
                 },
                 "parameters": {
+                    "principalId": {
+                        "value": "[parameters('principalId')]"
+                    },
+                    "appId": {
+                        "value": "[parameters('appId')]"
+                    },
+                    "principalSecret": {
+                        "value": "[parameters('principalSecret')]"
+                    },
+                    "adoOrgName": {
+                        "value": "[parameters('adoOrgName')]"
+                    },
+                    "adoProjectName": {
+                        "value": "[parameters('adoProjectName')]"
+                    },
+                    "ghOrgName": {
+                        "value": "[parameters('ghOrgName')]"
+                    },
+                    "ghRepoName": {
+                        "value": "[parameters('ghRepoName')]"
+                    },
+                    "paToken": {
+                        "value": "[parameters('paToken')]"
+                    },
+                    "prefix": {
+                        "value": "[parameters('prefix')]"
+                    },
+                    "subscriptionId": {
+                        "value": "[parameters('subscriptionId')]"
+                    }
                 }
             }
         }
