@@ -1,50 +1,39 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
-            "type": "array",
-            "defaultValue": []
+            "type": "array"
         },
         "appId": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "string"
         },
         "principalSecret": {
-            "type": "securestring",
-            "defaultValue": ""
+            "type": "securestring"
         },
         "adoPAT": {
-            "type": "securestring",
-            "defaultValue": ""
+            "type": "securestring"
         },
         "adoOrgName": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "string"
         },
         "adoProjectName": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "string"
         },
         "ghOrgName": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "string"
         },
         "ghRepoName": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "string"
         },
         "paToken": {
-            "type": "securestring",
-            "defaultValue": ""
+            "type": "securestring"
         },
         "prefix": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "string"
         },
         "subscriptionId": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "string"
         }
     },
     "variables": {
