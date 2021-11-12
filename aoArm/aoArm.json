@@ -6,6 +6,11 @@
             "type": "array",
             "defaultValue": []
         },
+        "adoPAT": {
+            "type": "securestring",
+            "defaultValue": ""
+        },
+
         "appId": {
             "type": "string",
             "defaultValue": ""
@@ -78,6 +83,9 @@
                     },
                     "principalSecret": {
                         "value": "[parameters('principalSecret')]"
+                    },
+                    "adoPAT": {
+                        "value": "[parameters('adoPAT')]"
                     },
                     "adoOrgName": {
                         "value": "[parameters('adoOrgName')]"

@@ -83,10 +83,12 @@ if (!$AzureTenantId -or !$AzureSubscriptionId) {
 # ##################################################
 # TASKS
 
-Write-Host "Create Service Principal"
-$servicePrincipal = New-ServicePrincipal `
-  -azureSubscriptionId $AzureSubscriptionId `
-  -servicePrincipalName $ServicePrincipalName
+
+
+# Write-Host "Create Service Principal"
+# $servicePrincipal = New-ServicePrincipal `
+#  -azureSubscriptionId $AzureSubscriptionId `
+#  -servicePrincipalName $ServicePrincipalName
 
 Write-Host "Create AzDO Project"
 New-AzDevOpsProject `
@@ -120,41 +122,41 @@ $AzDevOpsVariables.keys | ForEach-Object {
 
 
 Write-Host "Create GitHub Service Connection in AzDO Project"
-$githubServiceConnectionId = New-GithubServiceConnection `
-  -azureSubscriptionId $AzureSubscriptionId `
-  -azdoOrgUrl $AzDevOpsOrgUrl `
-  -azdoProjectName $AzDevOpsProjectName `
-  -githubServiceConnectionName $githubServiceConnectionName `
-  -githubPat $GithubPAT `
-  -githubRepoUrl $githubRepoUrl
+# $githubServiceConnectionId = New-GithubServiceConnection `
+#  -azureSubscriptionId $AzureSubscriptionId `
+#  -azdoOrgUrl $AzDevOpsOrgUrl `
+#  -azdoProjectName $AzDevOpsProjectName `
+#  -githubServiceConnectionName $githubServiceConnectionName `
+#  -githubPat $GithubPAT `
+#  -githubRepoUrl $githubRepoUrl
 
 Write-Host "Create Azure Service Connection in AzDO Project"
-New-AzureServiceConnection `
-  -azureTenantId $AzureTenantId `
-  -azureSubscriptionId $AzureSubscriptionId `
-  -azdoOrgUrl $AzDevOpsOrgUrl `
-  -azdoProjectName $AzDevOpsProjectName `
-  -azureServiceConnectionName $azureServiceConnectionName `
-  -servicePrincipal $servicePrincipal
+#New-AzureServiceConnection `
+#  -azureTenantId $AzureTenantId `
+# -azureSubscriptionId $AzureSubscriptionId `
+#  -azdoOrgUrl $AzDevOpsOrgUrl `
+# -azdoProjectName $AzDevOpsProjectName `
+# -azureServiceConnectionName $azureServiceConnectionName `
+# -servicePrincipal $servicePrincipal
 
 Write-Host "Get list of AzDO pipeline files in GitHub repo"
-$pipelineFiles = Get-PipelineFilesInGithubRepo `
-  -githubRepoOwner $GithubAccountName `
-  -githubPat $GithubPAT `
-  -githubRepoName $GithubRepoName `
-  -githubBranch $GithubBranchName `
-  -azdoEnvName $AzDevOpsEnvironmentName
+#$pipelineFiles = Get-PipelineFilesInGithubRepo `
+#  -githubRepoOwner $GithubAccountName `
+#  -githubPat $GithubPAT `
+#  -githubRepoName $GithubRepoName `
+# -githubBranch $GithubBranchName `
+#  -azdoEnvName $AzDevOpsEnvironmentName
 
 Write-Host "Import AzDO pipelines"
-Import-Pipelines `
-  -azureSubscriptionId $AzureSubscriptionId `
-  -azdoOrgUrl $AzDevOpsOrgUrl `
-  -azdoProjectName $AzDevOpsProjectName `
-  -githubPat $GithubPAT `
-  -githubRepoUrl $githubRepoUrl `
-  -githubBranch $GithubBranchName `
-  -githubServiceConnectionId $githubServiceConnectionId `
-  -skipFirstPipelineRun $SkipFirstPipelineRun `
-  -pipelineFiles $pipelineFiles
+#Import-Pipelines `
+#  -azureSubscriptionId $AzureSubscriptionId `
+#  -azdoOrgUrl $AzDevOpsOrgUrl `
+#  -azdoProjectName $AzDevOpsProjectName `
+#  -githubPat $GithubPAT `
+#  -githubRepoUrl $githubRepoUrl `
+#  -githubBranch $GithubBranchName `
+#  -githubServiceConnectionId $githubServiceConnectionId `
+#  -skipFirstPipelineRun $SkipFirstPipelineRun `
+#  -pipelineFiles $pipelineFiles
 # ##################################################
 
