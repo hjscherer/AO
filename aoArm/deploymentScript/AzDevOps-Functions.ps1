@@ -51,14 +51,13 @@ function New-ServicePrincipal {
 function New-AzDevOpsProject {
   param
   (
-    [string] $azureSubscriptionId,
     [string] $azdoOrgUrl,
     [string] $azdoProjectName,
     [string] $azdoProjectVisibility = "private"
   )
 
   # Check for existence
-  $project = (az devops project show --subscription $azureSubscriptionId --org $azdoOrgUrl -p $azdoProjectName)
+  $project = (az devops project show --org $azdoOrgUrl -p $azdoProjectName)
 
   if (!$project) {
     az devops project create `
@@ -71,12 +70,11 @@ function New-AzDevOpsProject {
 function Remove-AzDevOpsProject {
   param
   (
-    [string] $azureSubscriptionId,
     [string] $azdoOrgUrl,
     [string] $azdoProjectName
   )
 
-  $id = (az devops project show --subscription $azureSubscriptionId --org $azdoOrgUrl -p $azdoProjectName -o tsv --query 'id')
+  $id = (az devops project show --org $azdoOrgUrl -p $azdoProjectName -o tsv --query 'id')
 
   az devops project delete --yes `
   --org $azdoOrgUrl `
@@ -86,7 +84,6 @@ function Remove-AzDevOpsProject {
 function New-AzDevOpsVariableGroup {
   param
   (
-    [string] $azureSubscriptionId,
     [string] $azdoOrgUrl,
     [string] $azdoProjectName,
     [string] $azdoVariableGroupName,
@@ -134,7 +131,6 @@ function New-AzDevOpsVariableGroup {
 function Update-AzDevOpsVariableGroup {
   param
   (
-    [string] $azureSubscriptionId,
     [string] $azdoOrgUrl,
     [string] $azdoProjectName,
     [int] $azdoVariableGroupId,
@@ -143,7 +139,6 @@ function Update-AzDevOpsVariableGroup {
   )
 
   az pipelines variable-group update `
-    --subscription $azureSubscriptionId `
     --org $azdoOrgUrl `
     --project $azdoProjectName `
     --group-id $azdoVariableGroupId `
@@ -155,7 +150,6 @@ function Update-AzDevOpsVariableGroup {
 function New-AzDevOpsVariable {
   param
   (
-    [string] $azureSubscriptionId,
     [string] $azdoOrgUrl,
     [string] $azdoProjectName,
     [int] $azdoVariableGroupId,
@@ -166,7 +160,6 @@ function New-AzDevOpsVariable {
 
   # Check for existence
   $exists = (az pipelines variable-group variable list `
-    --subscription $azureSubscriptionId `
     --org $azdoOrgUrl `
     --project $azdoProjectName `
     --group-id $azdoVariableGroupId `
@@ -175,7 +168,6 @@ function New-AzDevOpsVariable {
 
   if (!$exists) {
     az pipelines variable-group variable create `
-      --subscription $azureSubscriptionId `
       --org $azdoOrgUrl `
       --project $azdoProjectName `
       --group-id $azdoVariableGroupId `
@@ -185,7 +177,6 @@ function New-AzDevOpsVariable {
       -o none
   } else {
     Update-AzDevOpsVariable `
-      -azureSubscriptionId $azureSubscriptionId `
       -azdoOrgUrl $azdoOrgUrl `
       -azdoProjectName $azdoProjectName `
       -azdoVariableGroupId $azdoVariableGroupId `
@@ -198,7 +189,6 @@ function New-AzDevOpsVariable {
 function Update-AzDevOpsVariable {
   param
   (
-    [string] $azureSubscriptionId,
     [string] $azdoOrgUrl,
     [string] $azdoProjectName,
     [int] $azdoVariableGroupId,
@@ -208,7 +198,6 @@ function Update-AzDevOpsVariable {
   )
 
   az pipelines variable-group variable update `
-  --subscription $azureSubscriptionId `
   --org $azdoOrgUrl `
   --project $azdoProjectName `
   --group-id $azdoVariableGroupId `

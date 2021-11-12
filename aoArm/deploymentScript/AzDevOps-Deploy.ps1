@@ -92,7 +92,6 @@ if (!$AzureTenantId -or !$AzureSubscriptionId) {
 
 Write-Host "Create AzDO Project"
 New-AzDevOpsProject `
-  -azureSubscriptionId $AzureSubscriptionId `
   -azdoOrgUrl $AzDevOpsOrgUrl `
   -azdoProjectName $AzDevOpsProjectName `
   -azdoProjectVisibility $AzDevOpsProjectVisibility
@@ -100,7 +99,6 @@ New-AzDevOpsProject `
 Write-Host "Create AzDO Variable Group"
 
 $vgId = New-AzDevOpsVariableGroup `
-  -azureSubscriptionId $AzureSubscriptionId `
   -azdoOrgUrl $AzDevOpsOrgUrl `
   -azdoProjectName $AzDevOpsProjectName `
   -azdoVariableGroupName $AzDevOpsVarGrpName `
@@ -111,7 +109,6 @@ $vgId = New-AzDevOpsVariableGroup `
 Write-Host "Create AzDO Variables as Secrets"
 $AzDevOpsVariables.keys | ForEach-Object {
   New-AzDevOpsVariable `
-    -azureSubscriptionId $AzureSubscriptionId `
     -azdoOrgUrl $AzDevOpsOrgUrl `
     -azdoProjectName $AzDevOpsProjectName `
     -azdoVariableGroupId $vgId `
