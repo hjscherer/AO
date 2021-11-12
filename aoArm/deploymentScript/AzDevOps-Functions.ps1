@@ -62,7 +62,6 @@ function New-AzDevOpsProject {
 
   if (!$project) {
     az devops project create `
-      --subscription $azureSubscriptionId `
       --org $azdoOrgUrl `
       --name $azdoProjectName `
       --visibility $azdoProjectVisibility
