@@ -79,7 +79,6 @@ function Remove-AzDevOpsProject {
   $id = (az devops project show --subscription $azureSubscriptionId --org $azdoOrgUrl -p $azdoProjectName -o tsv --query 'id')
 
   az devops project delete --yes `
-  --subscription $azureSubscriptionId `
   --org $azdoOrgUrl `
   --id $id
 }
@@ -98,14 +97,12 @@ function New-AzDevOpsVariableGroup {
 
   # Check for existence
   $vgId = (az pipelines variable-group list `
-    --subscription $azureSubscriptionId `
     --org $azdoOrgUrl `
     --project $azdoProjectName `
     --group-name $azdoVariableGroupName -o tsv --query '[0].id')
 
   if (!$vgId) {
     $vgId = (az pipelines variable-group create `
-      --subscription $azureSubscriptionId `
       --org $azdoOrgUrl `
       --project $azdoProjectName `
       --name $azdoVariableGroupName `
@@ -116,7 +113,6 @@ function New-AzDevOpsVariableGroup {
     )
   } else {
     Update-AzDevOpsVariableGroup `
-      -azureSubscriptionId $azureSubscriptionId `
       -azdoOrgUrl $azdoOrgUrl `
       -azdoProjectName $azdoProjectName `
       -azdoVariableGroupId $vgId `
@@ -124,7 +120,6 @@ function New-AzDevOpsVariableGroup {
       -allPipelines $allPipelines
 
       New-AzDevOpsVariable `
-        -azureSubscriptionId $azureSubscriptionId `
         -azdoOrgUrl $azdoOrgUrl `
         -azdoProjectName $azdoProjectName `
         -azdoVariableGroupId $vgId `
