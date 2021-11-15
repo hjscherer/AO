@@ -59,6 +59,8 @@ function New-AzDevOpsProject {
   # Check for existence
   $project = (az devops project show --org $azdoOrgUrl -p $azdoProjectName)
 
+  Write-Host $project
+
   (Get-ChildItem -Path Env:AZURE_DEVOPS_EXT_PAT)[0].Value | Write-Host
 
   if (!$project) {
