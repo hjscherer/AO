@@ -60,6 +60,7 @@ function New-AzDevOpsProject {
   $project = (az devops project show --org $azdoOrgUrl -p $azdoProjectName)
 
   if (!$project) {
+    Write-Host "Create project"
     az devops project create `
       --org $azdoOrgUrl `
       --name $azdoProjectName `
