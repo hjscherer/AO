@@ -41,12 +41,6 @@
     },
     "resources": [
         {
-            "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-            "apiVersion": "2018-11-30",
-            "name": "[variables('userManagedIdentityName')]",
-            "location": "[resourceGroup().location]"
-        },
-        {
             "type": "Microsoft.Resources/deploymentScripts",
             "apiVersion": "2020-10-01",
             "name": "[concat(resourceGroup().name, '-ado')]",
