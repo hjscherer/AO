@@ -41,7 +41,7 @@
     },
     "variables": {
         "userManagedIdentityName": "[concat('test', '-umi')]",
-        "azDevOpsVariables": "\"b2cResultWorkerClientSecret\" = \"myb2cResultWorkerClientSecretValue\" \"loadtestUserPassword\" = \"myLoadtestUserPassword\" \"smokePassword\" = \"mySmokePassword\""
+        "azDevOpsVariables": "{ \"b2cResultWorkerClientSecret\": \"myb2cResultWorkerClientSecretValue\", \"loadtestUserPassword\" = \"myLoadtestUserPassword\" }"
     },
     "resources": [
         {
