@@ -91,9 +91,7 @@ if (!$AzureTenantId -or !$AzureSubscriptionId) {
 #  -servicePrincipalName $ServicePrincipalName
 
 Write-Host "Create Azure DevOps Project"
-Write-Host $AzDevOpsOrgUrl
-Write-Host $AzDevOpsProjectName
-Write-Host $AzDevOpsProjectVisibility
+az devops login --organization $AzDevOpsOrgUrl
 
 New-AzDevOpsProject `
   -azdoOrgUrl $AzDevOpsOrgUrl `
