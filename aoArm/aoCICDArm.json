@@ -26,13 +26,16 @@
         "ghRepoName": {
             "type": "string"
         },
-        "paToken": {
+        "ghPAToken": {
             "type": "securestring"
         },
         "prefix": {
             "type": "string"
         },
         "subscriptionId": {
+            "type": "string"
+        },
+        "environment": {
             "type": "string"
         }
     },
@@ -51,13 +54,13 @@
                 "primaryScriptUri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Deploy.ps1",
                 "arguments": "[concat('-AzureTenantId', ' ', '72f988bf-86f1-41af-91ab-2d7cd011db47', ' ',
                                       '-AzureSubscriptionId', ' ', subscription().subscriptionId, ' ',
-                                      '-AzDevOpsOrgUrl', ' ', 'https://dev.azure.com/hscherer', ' ',
-                                      '-AzDevOpsProjectName', ' ', 'AO-IAB3', ' ',
-                                      '-AzDevOpsEnvironmentName' , ' ', 'e2e', ' ',
+                                      '-AzDevOpsOrgUrl', ' ', parameters('adoOrgName'), ' ',
+                                      '-AzDevOpsProjectName', ' ', parameters('adoProjectName'), ' ',
+                                      '-AzDevOpsEnvironmentName' , ' ', parameters('environment'), ' ',
                                       '-ServicePrincipalName', ' ', 'todelete-ao', ' ',
                                       '-GithubPAT', ' ', 'test', ' ',
-                                      '-GithubAccountName', ' ', 'hjscherer', ' ',
-                                      '-GithubRepoName', ' ', 'ao-dummy', ' ',
+                                      '-GithubAccountName', ' ', parameters('ghOrgName'), ' ',
+                                      '-GithubRepoName', ' ', parameters('ghRepoName'), ' ',
                                       '-GithubBranchName', ' ', 'new-test', ' ',
                                       '-SkipFirstPipelineRun', ' ', '$True' , ' ',
                                       '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",

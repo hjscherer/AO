@@ -35,9 +35,18 @@
             "type": "string",
             "defaultValue": ""
         },
-        "paToken": {
+        "ghPAToken": {
             "type": "securestring",
             "defaultValue": ""
+        },
+        "environment": {
+            "type": "string",
+            "defaultValue": "e2e",
+            "allowedValues" : [
+                "e2e",
+                "int",
+                "prod"
+            ]
         },
         "prefix": {
             "type": "string",
@@ -99,14 +108,17 @@
                     "ghRepoName": {
                         "value": "[parameters('ghRepoName')]"
                     },
-                    "paToken": {
-                        "value": "[parameters('paToken')]"
+                    "ghPAToken": {
+                        "value": "[parameters('ghPAToken')]"
                     },
                     "prefix": {
                         "value": "[parameters('prefix')]"
                     },
                     "subscriptionId": {
                         "value": "[parameters('subscriptionId')]"
+                    },
+                    "environment": {
+                        "value": "[parameters('environment')]"
                     }
                 }
             }
