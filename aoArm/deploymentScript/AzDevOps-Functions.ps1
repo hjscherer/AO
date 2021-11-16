@@ -57,6 +57,7 @@ function New-AzDevOpsProject {
   )
 
   # Check for existence
+  az devops login --organization $azdoOrgUrl
   $project = (az devops project show --org $azdoOrgUrl -p $azdoProjectName)
 
   Write-Host $project
