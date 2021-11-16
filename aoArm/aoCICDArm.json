@@ -40,7 +40,8 @@
         }
     },
     "variables": {
-        "userManagedIdentityName": "[concat('test', '-umi')]"
+        "userManagedIdentityName": "[concat('test', '-umi')]",
+        "azDevOpsVariables": ["b2cResultWorkerClientSecret = myb2cResultWorkerClientSecretValue", "loadtestUserPassword = myLoadtestUserPassword", "smokePassword = mySmokePassword"]
     },
     "resources": [
         {
@@ -63,7 +64,9 @@
                                       '-GithubRepoName', ' ', parameters('ghRepoName'), ' ',
                                       '-GithubBranchName', ' ', 'new-test', ' ',
                                       '-SkipFirstPipelineRun', ' ', '$True' , ' ',
-                                      '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",
+                                      '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"', ' ',
+                                      '-AzDevOpsVariables', ' ', variables('azDevOpsVariables'))]",
+                                      
                 "environmentVariables": [
                     {
                         "name": "AZURE_DEVOPS_EXT_PAT",
