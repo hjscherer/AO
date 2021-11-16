@@ -40,13 +40,14 @@
         }
     },
     "variables": {
+        "userManagedIdentityName": "[concat('test', '-umi')]",
         "azDevOpsVariables": ["b2cResultWorkerClientSecret = myb2cResultWorkerClientSecretValue", "loadtestUserPassword = myLoadtestUserPassword", "smokePassword = mySmokePassword"]
     },
     "resources": [
         {
             "type": "Microsoft.Resources/deploymentScripts",
             "apiVersion": "2020-10-01",
-            "name": "ao-pipeline-rg-ado",
+            "name": "[concat('ao-pipeline-rg', '-ado')]",
             "location": "northeurope",
             "kind": "AzurePowerShell",
             "dependsOn": [],
@@ -63,8 +64,7 @@
                                       '-GithubRepoName', ' ', parameters('ghRepoName'), ' ',
                                       '-GithubBranchName', ' ', 'new-test', ' ',
                                       '-SkipFirstPipelineRun', ' ', '$True' , ' ',
-                                      '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"', ' ',
-                                      '-AzDevOpsVariables', ' ', variables('azDevOpsVariables'))]",
+                                      '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",
                                       
                 "environmentVariables": [
                     {
