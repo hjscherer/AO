@@ -40,14 +40,13 @@
         }
     },
     "variables": {
-        "userManagedIdentityName": "[concat('test', '-umi')]",
         "azDevOpsVariables": ["b2cResultWorkerClientSecret = myb2cResultWorkerClientSecretValue", "loadtestUserPassword = myLoadtestUserPassword", "smokePassword = mySmokePassword"]
     },
     "resources": [
         {
             "type": "Microsoft.Resources/deploymentScripts",
             "apiVersion": "2020-10-01",
-            "name": "[concat('ao-pipeline-rg', '-ado')]",
+            "name": "ao-pipeline-rg",
             "location": "northeurope",
             "kind": "AzurePowerShell",
             "dependsOn": [],
