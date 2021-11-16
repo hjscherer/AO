@@ -31,9 +31,9 @@ param
   # Whether pipelines should skip running immediately after import. Pass $true to skip (NOT run) pipelines immediately.
   [bool] $SkipFirstPipelineRun = $true,
   # Username provisioned in AAD B2C to use for smoke tests
-  [string] $SmokeTestUserName
+  [string] $SmokeTestUserName,
   # Hashtable of key-value pairs to add to the created Variable Group as individual Variables
-  #$AzDevOpsVariables
+  $AzDevOpsVariables
 )
 
 # ##################################################
