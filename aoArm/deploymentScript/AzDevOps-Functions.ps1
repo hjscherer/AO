@@ -211,7 +211,6 @@ function Update-AzDevOpsVariable {
 function New-GithubServiceConnection {
   param
   (
-    [string] $azureSubscriptionId,
     [string] $azdoOrgUrl,
     [string] $azdoProjectName,
     [string] $githubServiceConnectionName,
@@ -222,7 +221,6 @@ function New-GithubServiceConnection {
   $env:AZURE_DEVOPS_EXT_GITHUB_PAT = $githubPat
 
   $githubServiceConnectionId = (az devops service-endpoint list --verbose `
-    --subscription $azureSubscriptionId `
     --org $azdoOrgUrl `
     --project $azdoProjectName `
     -o tsv `
@@ -242,7 +240,6 @@ function New-GithubServiceConnection {
     # This has to have output set to none so that the function can return just the new GitHub service connection ID
     # Otherwise a block of JSON is emitted by this which interferes with ability to set output to a variable
     az devops service-endpoint update `
-      --subscription $azureSubscriptionId `
       --org $azdoOrgUrl `
       --project $azdoProjectName `
       --id $githubServiceConnectionId `

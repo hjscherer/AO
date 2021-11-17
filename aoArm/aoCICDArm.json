@@ -40,8 +40,7 @@
         }
     },
     "variables": {
-        "userManagedIdentityName": "[concat('test', '-umi')]",
-        "azDevOpsVariables": "{ \"b2cResultWorkerClientSecret\": \"myb2cResultWorkerClientSecretValue\", \"loadtestUserPassword\" = \"myLoadtestUserPassword\" }"
+        "userManagedIdentityName": "[concat('test', '-umi')]"
     },
     "resources": [
         {
@@ -64,7 +63,6 @@
                                       '-GithubRepoName', ' ', parameters('ghRepoName'), ' ',
                                       '-GithubBranchName', ' ', 'new-test', ' ',
                                       '-SkipFirstPipelineRun', ' ', '$True' , ' ',
-                                      '-AzDevOpsVariables', ' ', variables('azDevOpsVariables'), ' ',
                                       '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",
                                       
                 "environmentVariables": [

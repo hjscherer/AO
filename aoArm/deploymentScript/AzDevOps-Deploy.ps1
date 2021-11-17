@@ -108,26 +108,25 @@ $vgId = New-AzDevOpsVariableGroup `
   -variableValue $firstVariableValue `
   -allPipelines $true
 
-Write-Host "Create AzDO Variables as Secrets"
-$AzDevOpsVariables.keys | ForEach-Object {
-  New-AzDevOpsVariable `
-    -azdoOrgUrl $AzDevOpsOrgUrl `
-    -azdoProjectName $AzDevOpsProjectName `
-    -azdoVariableGroupId $vgId `
-    -variableName $_ `
-    -variableValue $AzDevOpsVariables[$_] `
-    -secret $true
-}
+# Write-Host "Create AzDO Variables as Secrets"
+# $AzDevOpsVariables.keys | ForEach-Object {
+#  New-AzDevOpsVariable `
+#    -azdoOrgUrl $AzDevOpsOrgUrl `
+#    -azdoProjectName $AzDevOpsProjectName `
+#    -azdoVariableGroupId $vgId `
+#    -variableName $_ `
+#    -variableValue $AzDevOpsVariables[$_] `
+#    -secret $true
+#}
 
 
 Write-Host "Create GitHub Service Connection in AzDO Project"
-# $githubServiceConnectionId = New-GithubServiceConnection `
-#  -azureSubscriptionId $AzureSubscriptionId `
-#  -azdoOrgUrl $AzDevOpsOrgUrl `
-#  -azdoProjectName $AzDevOpsProjectName `
-#  -githubServiceConnectionName $githubServiceConnectionName `
-#  -githubPat $GithubPAT `
-#  -githubRepoUrl $githubRepoUrl
+$githubServiceConnectionId = New-GithubServiceConnection `
+  -azdoOrgUrl $AzDevOpsOrgUrl `
+  -azdoProjectName $AzDevOpsProjectName `
+  -githubServiceConnectionName $githubServiceConnectionName `
+  -githubPat $GithubPAT `
+  -githubRepoUrl $githubRepoUrl
 
 Write-Host "Create Azure Service Connection in AzDO Project"
 #New-AzureServiceConnection `
