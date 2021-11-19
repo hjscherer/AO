@@ -40,6 +40,12 @@ param
 
 curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
+# Install GH PS module
+# Install-Module -Name PowerShellForGitHub,PSSodium -Confirm:$false -Force
+# Import-Module -Name PowerShellForGitHub,PSSodium
+
+whereis git
+
 # Set Azure CLI to auto install extensions
 az config set extension.use_dynamic_install=yes_without_prompt
 az config set extension.run_after_dynamic_install=$true
@@ -120,13 +126,15 @@ $vgId = New-AzDevOpsVariableGroup `
 #}
 
 
-Write-Host "Create GitHub Service Connection in AzDO Project"
-$githubServiceConnectionId = New-GithubServiceConnection `
-  -azdoOrgUrl $AzDevOpsOrgUrl `
-  -azdoProjectName $AzDevOpsProjectName `
-  -githubServiceConnectionName $githubServiceConnectionName `
-  -githubPat $GithubPAT `
-  -githubRepoUrl $githubRepoUrl
+
+
+#Write-Host "Create GitHub Service Connection in AzDO Project"
+#$githubServiceConnectionId = New-GithubServiceConnection `
+#  -azdoOrgUrl $AzDevOpsOrgUrl `
+#  -azdoProjectName $AzDevOpsProjectName `
+#  -githubServiceConnectionName $githubServiceConnectionName `
+#  -githubPat $GithubPAT `
+#  -githubRepoUrl $githubRepoUrl
 
 Write-Host "Create Azure Service Connection in AzDO Project"
 #New-AzureServiceConnection `
