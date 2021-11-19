@@ -54,7 +54,7 @@
                 "primaryScriptUri": "https://raw.githubusercontent.com/hjscherer/AO/dev/aoArm/deploymentScript/AzDevOps-Deploy.ps1",
                 "arguments": "[concat('-AzureTenantId', ' ', '72f988bf-86f1-41af-91ab-2d7cd011db47', ' ',
                                       '-AzureSubscriptionId', ' ', subscription().subscriptionId, ' ',
-                                      '-AzDevOpsOrgUrl', ' ', parameters('adoOrgName'), ' ',
+                                      '-AzDevOpsOrgName', ' ', parameters('adoOrgName'), ' ',
                                       '-AzDevOpsProjectName', ' ', parameters('adoProjectName'), ' ',
                                       '-AzDevOpsEnvironmentName' , ' ', parameters('environment'), ' ',
                                       '-ServicePrincipalName', ' ', 'todelete-ao', ' ',

@@ -13,7 +13,7 @@ param
   # If not specified, this script will get it from authentication context. This is a GUID and you can get it from az account show -o tsv --query 'id'. The Azure service connection will connect to this Azure subscription.
   [string] $AzureSubscriptionId = $null,
   # Azure DevOps organizational URL, like https://dev.azure.com/YOUR_AZURE_DEV_OPS_ORG and replace YOUR_AZURE_DEV_OPS_ORG with your real value.
-  [string] $AzDevOpsOrgUrl,
+  [string] $AzDevOpsOrgName,
   # The name of the Azure DevOps project to create for AlwaysOn. If it does not exist, it will be created. If it already exists, the script will deploy into the existing project.
   [string] $AzDevOpsProjectName,
   # Environment to provision. AlwaysOn currently supports "e2e", "int", "prod".
@@ -70,6 +70,7 @@ if (!$AzureTenantId -or !$AzureSubscriptionId) {
 
 # GitHub repo URL assembled from passed account name and repo name
 [string] $githubRepoUrl = "https://github.com/${GithubAccountName}/${GithubRepoName}"
+[string] $AzDevOpsOrgUrl = "https://dev.azure.com/$AzDevOpsOrgName"
 
 # One of: "public", "private". Typically use "private" unless you need to make this Azure DevOps project visible outside your organization.
 [string] $AzDevOpsProjectVisibility = "private"
@@ -121,6 +122,8 @@ $vgId = New-AzDevOpsVariableGroup `
 [string] $adoPATRepoUrl = "https://hscherer:" +"$env:AZURE_DEVOPS_EXT_PAT@dev.azure.com/$AzDevOpsOrgUrl/$AzDevOpsProjectName/_git/$AzDevOpsProjectName"
 
 git config --global user.name $GithubAccountName
+git config --global user.email "ao@microsoft.com"
+
 git clone $githubPATRepoUrl
 cd AlwaysOn
 git remote remove origin
