@@ -115,6 +115,22 @@ $vgId = New-AzDevOpsVariableGroup `
   -variableValue $firstVariableValue `
   -allPipelines $true
 
+# $Cred = New-Object System.Management.Automation.PSCredential "ignore", $GithubPAT
+
+git config --global user.name $GithubAccountName
+git clone "https://$GithubAccountName:$GithubPAT@github.com/Azure/AlwaysOn.git"
+cd AlwaysOn
+git remote remove origin
+git remote add origin "https://hscherer:$Env:AZURE_DEVOPS_EXT_PAT@dev.azure.com/$AzDevOpsOrgUrl/$AzDevOpsProjectName/_git/$AzDevOpsProjectName"
+
+Write-Host (git remote -v)
+
+git branch -m old-main
+git checkout --orphan main
+git commit -m "First commit done by the pipeline"
+git push -u origin main
+
+
 # Write-Host "Create AzDO Variables as Secrets"
 # $AzDevOpsVariables.keys | ForEach-Object {
 #  New-AzDevOpsVariable `
@@ -137,7 +153,7 @@ $vgId = New-AzDevOpsVariableGroup `
 #  -githubPat $GithubPAT `
 #  -githubRepoUrl $githubRepoUrl
 
-Write-Host "Create Azure Service Connection in AzDO Project"
+# Write-Host "Create Azure Service Connection in AzDO Project"
 #New-AzureServiceConnection `
 #  -azureTenantId $AzureTenantId `
 # -azureSubscriptionId $AzureSubscriptionId `
@@ -146,7 +162,7 @@ Write-Host "Create Azure Service Connection in AzDO Project"
 # -azureServiceConnectionName $azureServiceConnectionName `
 # -servicePrincipal $servicePrincipal
 
-Write-Host "Get list of AzDO pipeline files in GitHub repo"
+# Write-Host "Get list of AzDO pipeline files in GitHub repo"
 #$pipelineFiles = Get-PipelineFilesInGithubRepo `
 #  -githubRepoOwner $GithubAccountName `
 #  -githubPat $GithubPAT `
@@ -154,7 +170,7 @@ Write-Host "Get list of AzDO pipeline files in GitHub repo"
 # -githubBranch $GithubBranchName `
 #  -azdoEnvName $AzDevOpsEnvironmentName
 
-Write-Host "Import AzDO pipelines"
+#Write-Host "Import AzDO pipelines"
 #Import-Pipelines `
 #  -azureSubscriptionId $AzureSubscriptionId `
 #  -azdoOrgUrl $AzDevOpsOrgUrl `
