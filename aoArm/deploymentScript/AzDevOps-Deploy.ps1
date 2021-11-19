@@ -41,8 +41,8 @@ param
 curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # Install GH PS module
-# Install-Module -Name PowerShellForGitHub,PSSodium -Confirm:$false -Force
-# Import-Module -Name PowerShellForGitHub,PSSodium
+Install-Module -Name PowerShellForGitHub,PSSodium -Confirm:$false -Force
+Import-Module -Name PowerShellForGitHub,PSSodium
 
 git status
 

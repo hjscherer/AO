@@ -58,7 +58,7 @@
                                       '-AzDevOpsProjectName', ' ', parameters('adoProjectName'), ' ',
                                       '-AzDevOpsEnvironmentName' , ' ', parameters('environment'), ' ',
                                       '-ServicePrincipalName', ' ', 'todelete-ao', ' ',
-                                      '-GithubPAT', ' ', 'test', ' ',
+                                      '-GithubPAT', ' ', parameters('ghPAToken'), ' ',
                                       '-GithubAccountName', ' ', parameters('ghOrgName'), ' ',
                                       '-GithubRepoName', ' ', parameters('ghRepoName'), ' ',
                                       '-GithubBranchName', ' ', 'new-test', ' ',
