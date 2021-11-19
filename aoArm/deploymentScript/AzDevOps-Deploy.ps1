@@ -117,11 +117,14 @@ $vgId = New-AzDevOpsVariableGroup `
 
 # $Cred = New-Object System.Management.Automation.PSCredential "ignore", $GithubPAT
 
+[string] $githubPATRepoUrl = "https://$GithubAccountName:$GithubPAT@github.com/Azure/AlwaysOn.git"
+[string] $adoPATRepoUrl = "https://hscherer:$Env:AZURE_DEVOPS_EXT_PAT@dev.azure.com/$AzDevOpsOrgUrl/$AzDevOpsProjectName/_git/$AzDevOpsProjectName"
+
 git config --global user.name $GithubAccountName
-git clone "https://$GithubAccountName:$GithubPAT@github.com/Azure/AlwaysOn.git"
+git clone $githubPATRepoUrl
 cd AlwaysOn
 git remote remove origin
-git remote add origin "https://hscherer:$Env:AZURE_DEVOPS_EXT_PAT@dev.azure.com/$AzDevOpsOrgUrl/$AzDevOpsProjectName/_git/$AzDevOpsProjectName"
+git remote add origin $adoPATRepoUrl
 
 Write-Host (git remote -v)
 
