@@ -119,7 +119,7 @@ $vgId = New-AzDevOpsVariableGroup `
 # $Cred = New-Object System.Management.Automation.PSCredential "ignore", $GithubPAT
 
 [string] $githubPATRepoUrl = "https://" + $GithubAccountName + ":" + "$GithubPAT@github.com/Azure/AlwaysOn.git"
-[string] $adoPATRepoUrl = "https://hscherer:" +"$env:AZURE_DEVOPS_EXT_PAT@dev.azure.com/$AzDevOpsOrgUrl/$AzDevOpsProjectName/_git/$AzDevOpsProjectName"
+[string] $adoPATRepoUrl = "https://hscherer:" +"$env:AZURE_DEVOPS_EXT_PAT@dev.azure.com/$AzDevOpsOrgName/$AzDevOpsProjectName/_git/$AzDevOpsProjectName"
 
 git config --global user.name $GithubAccountName
 git config --global user.email "ao@microsoft.com"
