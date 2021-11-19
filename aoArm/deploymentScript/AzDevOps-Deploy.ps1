@@ -44,7 +44,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 # Install-Module -Name PowerShellForGitHub,PSSodium -Confirm:$false -Force
 # Import-Module -Name PowerShellForGitHub,PSSodium
 
-apt-get install git
+apt-get install git -y
 Write-Host (git --version)
 
 # Set Azure CLI to auto install extensions
