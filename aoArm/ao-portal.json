@@ -444,7 +444,6 @@
                 "adoOrgName": "[steps('aoDevOps').aoAdoOrg]",
                 "adoProjectName": "[steps('aoDevOps').aoAdoProjectName]",
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
-                "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
                 "patToken": "[steps('aoDevOps').aoPatToken]",
                 "prefix": "[steps('aoSettings').aoPrefix]",
                 "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
