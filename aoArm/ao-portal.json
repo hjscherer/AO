@@ -66,7 +66,7 @@
                             "label": "Select an existing Azure DevOps organization name",
                             "toolTip": "Provide Azure DevOps organization name.",
                             "visible": true,
-                            "defaultValue": "sd",
+                            "defaultValue": "",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,50}$",
@@ -78,7 +78,7 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "New Azure DevOps project name",
                             "toolTip": "Provide a name for the new repository that will be created",
-                            "defaultValue": "sd",
+                            "defaultValue": "",
                             "visible": true,
                             "placeholder": "",
                             "constraints": {
@@ -93,7 +93,7 @@
                             "label": "GitHub organization or username",
                             "toolTip": "Provide an exiting GitHub org/username.",
                             "visible": true,
-                            "defaultValue": "sd",
+                            "defaultValue": "",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,39}$",
@@ -101,21 +101,7 @@
                             }
                         },
                         {
-                            "name": "aoGhRepoName",
-                            "type": "Microsoft.Common.TextBox",
-                            "label": "New GitHub repository name",
-                            "toolTip": "Provide a name for the new repository that will be created",
-                            "defaultValue": "sd",
-                            "visible": true,
-                            "placeholder": "",
-                            "constraints": {
-                                "required": true,
-                                "regex": "^[a-z0-9A-Z-]{1,100}$",
-                                "validationMessage": "The repository name must be 1-100 characters."
-                            }
-                        },
-                        {
-                            "name": "aoPaToken",
+                            "name": "aoPatToken",
                             "type": "Microsoft.Common.PasswordBox",
                             "label": {
                                 "password": "GitHub personal access token",
@@ -190,7 +176,7 @@
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
-                            "defaultValue": "sd",
+                            "defaultValue": "",
                             "visible": true,
                             "options": {
                                 "text": "AlwaysOn deployment:",
@@ -205,7 +191,7 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn prefix",
                             "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
-                            "defaultValue": "sd",
+                            "defaultValue": "",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
@@ -217,7 +203,7 @@
                             "type": "Microsoft.Common.DropDown",
                             "label": "AlwaysOn deployment locations",
                             "placeholder": "",
-                            "defaultValue": "France Central",
+                            "defaultValue": "Germany West Central",
                             "toolTip": "",
                             "multiselect": true,
                             "selectAll": true,
@@ -312,7 +298,7 @@
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "visible": true,
-                            "defaultValue": "sd",
+                            "defaultValue": "",
                             "options": {
                                 "text": "AlwaysOn deployment:",
                                 "link": {
@@ -326,7 +312,7 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn prefix",
                             "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
-                            "defaultValue": "sd",
+                            "defaultValue": "",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
@@ -423,7 +409,7 @@
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
-                            "defaultValue": "sd",
+                            "defaultValue": "",
                             "visible": true,
                             "options": {
                                 "text": "AlwaysOn for the game industry depends on the following additional Azure services. The pipeline will configure this services for initial use.",
@@ -438,7 +424,7 @@
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn Azure AD B2C tenant name",
                             "toolTip": "Provide a globaly unique tenant name. '.onmicrosoft.com' will be added when it is created.",
-                            "defaultValue": "sd",
+                            "defaultValue": "",
                             "constraints": {
                                 "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,50}$",
@@ -459,7 +445,7 @@
                 "adoProjectName": "[steps('aoDevOps').aoAdoProjectName]",
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "ghRepoName": "[steps('aoDevOps').aoGhRepoName]",
-                "paToken": "[steps('aoDevOps').aoPaToken]",
+                "patToken": "[steps('aoDevOps').aoPatToken]",
                 "prefix": "[steps('aoSettings').aoPrefix]",
                 "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
             },
