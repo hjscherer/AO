@@ -449,7 +449,7 @@
                 "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
             },
             "kind": "Subscription",
-            "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]",
+            "subscriptionId": "[steps('basics').resourceScope.subscription.id]",
             "location": "[steps('basics').resourceScope.location.name]"
         }
     }
