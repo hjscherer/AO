@@ -190,7 +190,7 @@
                             "visible": true
                         },
                         {
-                            "name": "esSingleSubSection",
+                            "name": "aoe2eSubSection",
                             "type": "Microsoft.Common.Section",
                             "label": "Single platform subscription",
                             "elements": [
@@ -604,7 +604,7 @@
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "patToken": "[steps('aoDevOps').aoPatToken]",
                 "prefix": "[steps('aoE2ESettings').aoPrefix]",
-                "subscriptionId": "[steps('aoE2ESettings').aoSub.subscription.id]"
+                "subscriptionId": "[steps('aoE2ESettings').aoe2eSubSection.aoSub.subscription.id]"
             },
             "kind": "Subscription",
             "subscriptionId": "[steps('basics').resourceScope.subscription.id]",
