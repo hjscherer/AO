@@ -196,7 +196,7 @@
                             "elements": [
                                 {
                                     "type": "Microsoft.Common.SubscriptionSelector",
-                                    "name": "aoSub",
+                                    "name": "aoE2ESub",
                                     "label": "AlwaysOn E2E subscription"
                                 }
                             ],
@@ -229,7 +229,7 @@
                             "visible": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]"
                         },
                         {
-                            "name": "aoLocations",
+                            "name": "aoE2ELocations",
                             "type": "Microsoft.Common.DropDown",
                             "label": "AlwaysOn deployment locations",
                             "placeholder": "",
@@ -386,7 +386,7 @@
                             "visible": "[equals(steps('aoINTSettings').aoIntEnabled, 'Yes')]"
                         },
                         {
-                            "name": "aoLocations",
+                            "name": "aoIntLocations",
                             "type": "Microsoft.Common.DropDown",
                             "label": "AlwaysOn deployment locations",
                             "placeholder": "",
@@ -543,7 +543,7 @@
                             "visible": "[equals(steps('aoPRODSettings').aoProdEnabled, 'Yes')]"
                         },
                         {
-                            "name": "aoLocations",
+                            "name": "aoPRODLocations",
                             "type": "Microsoft.Common.DropDown",
                             "label": "AlwaysOn deployment locations",
                             "placeholder": "",
@@ -669,7 +669,7 @@
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "patToken": "[steps('aoDevOps').aoPatToken]",
                 "prefix": "[steps('aoE2ESettings').aoE2EPrefix]",
-                "subscriptionId": "[steps('aoE2ESettings').aoE2ESubSection.aoSub.subscription.id]"
+                "subscriptionId": "[steps('aoE2ESettings').aoE2ESubSection.aoE2ESub.subscription.id]"
             },
             "kind": "Subscription",
             "subscriptionId": "[steps('basics').resourceScope.subscription.id]",
