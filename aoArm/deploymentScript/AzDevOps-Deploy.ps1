@@ -144,7 +144,7 @@ git checkout -b feature/e2e-demobuild
 git add ./.ado/pipelines/config/variables-values-e2e.yaml
 git commit -m "Update pipeline configuration"
 
-git push remote feature/e2e-demobuild
+git push origin feature/e2e-demobuild
 
 
 # Write-Host "Create AzDO Variables as Secrets"
