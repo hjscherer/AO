@@ -6,7 +6,7 @@
             "title": "AlwaysOn accelerator",
             "steps": [
                 {
-                    "name": "basics",
+                    "name": "deployment",
                     "label": "Deployment location",
                     "elements": [
                         {
@@ -172,8 +172,8 @@
                 },
                 {
                     "name": "aoE2ESettings",
-                    "label": "AlwaysOn E2E setup",
-                    "bladeTitle": "AlwaysOn E2E prefix",
+                    "label": "E2E environment",
+                    "bladeTitle": "E2E environment",
                     "elements": [
                         {
                             "name": "info",
@@ -329,8 +329,8 @@
                 },
                 {
                     "name": "aoINTSettings",
-                    "label": "AlwaysOn INT setup",
-                    "bladeTitle": "AlwaysOn INT prefix",
+                    "label": "INT environment",
+                    "bladeTitle": "INT environment",
                     "elements": [
                         {
                             "name": "info",
@@ -486,8 +486,8 @@
                 },
                 {
                     "name": "aoPRODSettings",
-                    "label": "AlwaysOn Prod setup",
-                    "bladeTitle": "AlwaysOn Prod prefix",
+                    "label": "PROD environment",
+                    "bladeTitle": "PROD environment",
                     "elements": [
                         {
                             "name": "info",
@@ -691,8 +691,8 @@
                 "e2eLocations": "[steps('aoE2ESettings').aoE2ELocations]"
             },
             "kind": "Subscription",
-            "subscriptionId": "[steps('basics').resourceScope.subscription.id]",
-            "location": "[steps('basics').resourceScope.location.name]"
+            "subscriptionId": "[steps('deployment').resourceScope.subscription.id]",
+            "location": "[steps('deployment').resourceScope.location.name]"
         }
     }
 }
