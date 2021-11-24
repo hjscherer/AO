@@ -187,7 +187,7 @@
                                 ],
                                 "required": true
                             },
-                            "visible": "true"
+                            "visible": true
                         },
                         {
                             "type":"Microsoft.Common.SubscriptionSelector",
@@ -215,7 +215,7 @@
                             "toolTip": "Provide a prefix (max 5 characters)",
                             "defaultValue": "",
                             "constraints": {
-                                "required": true,
+                                "required": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]",
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
                                 "validationMessage": "The prefix must be 1-5 characters."
                             },
@@ -297,7 +297,7 @@
                                         "value": "japaneast"
                                     }
                                 ],
-                                "required": true
+                                "required": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
                             },
                             "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
                         }
