@@ -595,7 +595,7 @@
                 "adoProjectName": "[steps('aoDevOps').aoAdoProjectName]",
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "patToken": "[steps('aoDevOps').aoPatToken]",
-                "prefix": "[steps('aoSettings').aoPrefix]",
+                "prefix": "[steps('aoE2ESettings').aoPrefix]",
                 "subscriptionId": "[steps('aoSettings').aoSub.subscription.id]"
             },
             "kind": "Subscription",
