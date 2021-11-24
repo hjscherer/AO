@@ -169,7 +169,7 @@
                             }
                         },
                         {
-                            "name": "aoe2eenabled",
+                            "name": "aoE2eEnabled",
                             "type": "Microsoft.Common.OptionsGroup",
                             "label": "Deploy a E2E environment and pipeline?",
                             "defaultValue": "Yes (recommended)",
@@ -200,13 +200,13 @@
                                     "label": "AlwaysOn E2E subscription"
                                 }
                             ],
-                            "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
+                            "visible": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]"
                         },
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "defaultValue": "",
-                            "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]",
+                            "visible": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]",
                             "options": {
                                 "text": "AlwaysOn deployment:",
                                 "link": {
@@ -222,7 +222,7 @@
                             "toolTip": "Provide a prefix (max 5 characters)",
                             "defaultValue": "",
                             "constraints": {
-                                "required": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]",
+                                "required": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]",
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
                                 "validationMessage": "The prefix must be 1-5 characters."
                             },
@@ -304,37 +304,66 @@
                                         "value": "japaneast"
                                     }
                                 ],
-                                "required": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
+                                "required": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]"
                             },
-                            "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
+                            "visible": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]"
                         }
                     ]
                 },
                 {
                     "name": "aoINTSettings",
                     "label": "AlwaysOn INT setup",
-                    "bladeTitle": "AlwaysOn prefix",
+                    "bladeTitle": "AlwaysOn INT prefix",
                     "elements": [
                         {
                             "name": "info",
                             "type": "Microsoft.Common.InfoBox",
                             "visible": true,
                             "options": {
-                                "text": "AlwaysOn will use this prefix for all resource groups.",
+                                "text": "AlwaysOn will use this prefix for all resource and resource groups as well in the pipeline configuration.",
                                 "uri": "",
                                 "style": "Info"
                             }
                         },
                         {
-                            "type": "Microsoft.Common.SubscriptionSelector",
-                            "name": "aoSub",
-                            "label": "AO subscription"
+                            "name": "aoIntEnabled",
+                            "type": "Microsoft.Common.OptionsGroup",
+                            "label": "Deploy a INT environment and pipeline?",
+                            "defaultValue": "Yes (recommended)",
+                            "toolTip": "",
+                            "constraints": {
+                                "allowedValues": [
+                                    {
+                                        "label": "Yes (recommended)",
+                                        "value": "Yes"
+                                    },
+                                    {
+                                        "label": "No",
+                                        "value": "No"
+                                    }
+                                ],
+                                "required": true
+                            },
+                            "visible": true
+                        },
+                        {
+                            "name": "aoINTSubSection",
+                            "type": "Microsoft.Common.Section",
+                            "label": "Single platform subscription",
+                            "elements": [
+                                {
+                                    "type": "Microsoft.Common.SubscriptionSelector",
+                                    "name": "aoSub",
+                                    "label": "AlwaysOn INT subscription"
+                                }
+                            ],
+                            "visible": "[equals(steps('aoINTSettings').aoIntEnabled, 'Yes')]"
                         },
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "defaultValue": "",
-                            "visible": true,
+                            "visible": "[equals(steps('aoINTSettings').aoIntEnabled, 'Yes')]",
                             "options": {
                                 "text": "AlwaysOn deployment:",
                                 "link": {
@@ -347,13 +376,14 @@
                             "name": "aoPrefix",
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn prefix",
-                            "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
+                            "toolTip": "Provide a prefix (max 5 characters)",
                             "defaultValue": "",
                             "constraints": {
-                                "required": true,
+                                "required": "[equals(steps('aoINTSettings').aoIntEnabled, 'Yes')]",
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
                                 "validationMessage": "The prefix must be 1-5 characters."
-                            }
+                            },
+                            "visible": "[equals(steps('aoINTSettings').aoIntEnabled, 'Yes')]"
                         },
                         {
                             "name": "aoLocations",
@@ -431,32 +461,66 @@
                                         "value": "japaneast"
                                     }
                                 ],
-                                "required": true
+                                "required": "[equals(steps('aoE2ESettings').aoIntEnabled, 'Yes')]"
                             },
-                            "visible": true
+                            "visible": "[equals(steps('aoE2ESettings').aoIntEnabled, 'Yes')]"
                         }
                     ]
                 },
                 {
                     "name": "aoPRODSettings",
-                    "label": "AlwaysOn PROD setup",
-                    "bladeTitle": "AlwaysOn prefix",
+                    "label": "AlwaysOn Prod setup",
+                    "bladeTitle": "AlwaysOn Prod prefix",
                     "elements": [
                         {
                             "name": "info",
                             "type": "Microsoft.Common.InfoBox",
                             "visible": true,
                             "options": {
-                                "text": "AlwaysOn will use this prefix for all resource groups.",
+                                "text": "AlwaysOn will use this prefix for all resource and resource groups as well in the pipeline configuration.",
                                 "uri": "",
                                 "style": "Info"
                             }
                         },
                         {
+                            "name": "aoProdEnabled",
+                            "type": "Microsoft.Common.OptionsGroup",
+                            "label": "Deploy a Prod environment and pipeline?",
+                            "defaultValue": "Yes (recommended)",
+                            "toolTip": "",
+                            "constraints": {
+                                "allowedValues": [
+                                    {
+                                        "label": "Yes (recommended)",
+                                        "value": "Yes"
+                                    },
+                                    {
+                                        "label": "No",
+                                        "value": "No"
+                                    }
+                                ],
+                                "required": true
+                            },
+                            "visible": true
+                        },
+                        {
+                            "name": "aoProdSubSection",
+                            "type": "Microsoft.Common.Section",
+                            "label": "Single platform subscription",
+                            "elements": [
+                                {
+                                    "type": "Microsoft.Common.SubscriptionSelector",
+                                    "name": "aoSub",
+                                    "label": "AlwaysOn E2E subscription"
+                                }
+                            ],
+                            "visible": "[equals(steps('aoPRODSettings').aoe2eenabled, 'Yes')]"
+                        },
+                        {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
-                            "visible": true,
                             "defaultValue": "",
+                            "visible": "[equals(steps('aoPRODSettings').aoe2eenabled, 'Yes')]",
                             "options": {
                                 "text": "AlwaysOn deployment:",
                                 "link": {
@@ -469,13 +533,14 @@
                             "name": "aoPrefix",
                             "type": "Microsoft.Common.TextBox",
                             "label": "AlwaysOn prefix",
-                            "toolTip": "Provide a prefix (max 5 characters) that will be used for all resource groups this pipeline creates.",
+                            "toolTip": "Provide a prefix (max 5 characters)",
                             "defaultValue": "",
                             "constraints": {
-                                "required": true,
+                                "required": "[equals(steps('aoPRODSettings').aoProdEnabled, 'Yes')]",
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
                                 "validationMessage": "The prefix must be 1-5 characters."
-                            }
+                            },
+                            "visible": "[equals(steps('aoPRODSettings').aoProdEnabled, 'Yes')]"
                         },
                         {
                             "name": "aoLocations",
@@ -553,9 +618,9 @@
                                         "value": "japaneast"
                                     }
                                 ],
-                                "required": true
+                                "required": "[equals(steps('aoPRODSettings').aoProdEnabled, 'Yes')]"
                             },
-                            "visible": true
+                            "visible": "[equals(steps('aoPRODSettings').aoProdEnabled, 'Yes')]"
                         }
                     ]
                 },
