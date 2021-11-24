@@ -190,9 +190,16 @@
                             "visible": true
                         },
                         {
-                            "type":"Microsoft.Common.SubscriptionSelector",
-                            "name": "aoSub",
-                            "label": "AlwaysOn E2E subscription",
+                            "name": "esSingleSubSection",
+                            "type": "Microsoft.Common.Section",
+                            "label": "Single platform subscription",
+                            "elements": [
+                                {
+                                    "type": "Microsoft.Common.SubscriptionSelector",
+                                    "name": "aoSub",
+                                    "label": "AlwaysOn E2E subscription"
+                                }
+                            ],
                             "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
                         },
                         {
@@ -319,7 +326,7 @@
                             }
                         },
                         {
-                            "type":"Microsoft.Common.SubscriptionSelector",
+                            "type": "Microsoft.Common.SubscriptionSelector",
                             "name": "aoSub",
                             "label": "AO subscription"
                         },
@@ -426,7 +433,8 @@
                                 ],
                                 "required": true
                             },
-                            "visible": true                        }
+                            "visible": true
+                        }
                     ]
                 },
                 {
@@ -547,7 +555,8 @@
                                 ],
                                 "required": true
                             },
-                            "visible": true                        }
+                            "visible": true
+                        }
                     ]
                 },
                 {
@@ -581,7 +590,6 @@
                                 "validationMessage": "Please provide a valid Azure AD tenant name."
                             }
                         }
-
                     ]
                 }
             ]
