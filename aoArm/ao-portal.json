@@ -671,7 +671,7 @@
             },
             "kind": "Subscription",
             "subscriptionId": "[steps('aoE2ESettings').aoE2ESubSection.aoE2ESub.subscription.id]",
-            "location": "[steps('aoE2ESettings').aoE2ELocations[0]]"
+            "location": "[first(steps('aoE2ESettings').aoE2ELocations)]"
         }
     }
 }
