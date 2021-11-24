@@ -226,7 +226,7 @@
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
                                 "validationMessage": "The prefix must be 1-5 characters."
                             },
-                            "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
+                            "visible": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]"
                         },
                         {
                             "name": "aoLocations",
