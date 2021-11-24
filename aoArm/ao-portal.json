@@ -172,12 +172,12 @@
                             "name": "aoE2eEnabled",
                             "type": "Microsoft.Common.OptionsGroup",
                             "label": "Deploy a E2E environment and pipeline?",
-                            "defaultValue": "Yes (recommended)",
+                            "defaultValue": "Yes",
                             "toolTip": "",
                             "constraints": {
                                 "allowedValues": [
                                     {
-                                        "label": "Yes (recommended)",
+                                        "label": "Yes",
                                         "value": "Yes"
                                     },
                                     {
@@ -329,12 +329,12 @@
                             "name": "aoIntEnabled",
                             "type": "Microsoft.Common.OptionsGroup",
                             "label": "Deploy a INT environment and pipeline?",
-                            "defaultValue": "Yes (recommended)",
+                            "defaultValue": "Yes",
                             "toolTip": "",
                             "constraints": {
                                 "allowedValues": [
                                     {
-                                        "label": "Yes (recommended)",
+                                        "label": "Yes",
                                         "value": "Yes"
                                     },
                                     {
@@ -486,12 +486,12 @@
                             "name": "aoProdEnabled",
                             "type": "Microsoft.Common.OptionsGroup",
                             "label": "Deploy a Prod environment and pipeline?",
-                            "defaultValue": "Yes (recommended)",
+                            "defaultValue": "Yes",
                             "toolTip": "",
                             "constraints": {
                                 "allowedValues": [
                                     {
-                                        "label": "Yes (recommended)",
+                                        "label": "Yes",
                                         "value": "Yes"
                                     },
                                     {
