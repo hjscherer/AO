@@ -7,7 +7,7 @@
             "steps": [
                 {
                     "name": "deployment",
-                    "label": "Deployment location",
+                    "label": "Deployment",
                     "elements": [
                         {
                             "name": "resourceScope",
