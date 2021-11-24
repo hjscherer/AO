@@ -154,7 +154,157 @@
                     ]
                 },
                 {
-                    "name": "aoSettings",
+                    "name": "aoE2ESettings",
+                    "label": "AlwaysOn E2E setup",
+                    "bladeTitle": "AlwaysOn E2E prefix",
+                    "elements": [
+                        {
+                            "name": "info",
+                            "type": "Microsoft.Common.InfoBox",
+                            "visible": true,
+                            "options": {
+                                "text": "AlwaysOn will use this prefix for all resource and resource groups as well in the pipeline configuration.",
+                                "uri": "",
+                                "style": "Info"
+                            }
+                        },
+                        {
+                            "name": "aoe2eenabled",
+                            "type": "Microsoft.Common.OptionsGroup",
+                            "label": "Deploy a E2E environment and pipeline?",
+                            "defaultValue": "Yes (recommended)",
+                            "toolTip": "",
+                            "constraints": {
+                                "allowedValues": [
+                                    {
+                                        "label": "Yes (recommended)",
+                                        "value": "Yes"
+                                    },
+                                    {
+                                        "label": "No",
+                                        "value": "No"
+                                    }
+                                ],
+                                "required": true
+                            },
+                            "visible": "true"
+                        },
+                        {
+                            "type":"Microsoft.Common.SubscriptionSelector",
+                            "name": "aoSub",
+                            "label": "AlwaysOn E2E subscription",
+                            "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
+                        },
+                        {
+                            "name": "resourceGroup",
+                            "type": "Microsoft.Common.TextBlock",
+                            "defaultValue": "",
+                            "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]",
+                            "options": {
+                                "text": "AlwaysOn deployment:",
+                                "link": {
+                                    "label": "Learn more",
+                                    "uri": ""
+                                }
+                            }
+                        },
+                        {
+                            "name": "aoPrefix",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "AlwaysOn prefix",
+                            "toolTip": "Provide a prefix (max 5 characters)",
+                            "defaultValue": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "^[a-z0-9A-Z-]{1,5}$",
+                                "validationMessage": "The prefix must be 1-5 characters."
+                            },
+                            "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
+                        },
+                        {
+                            "name": "aoLocations",
+                            "type": "Microsoft.Common.DropDown",
+                            "label": "AlwaysOn deployment locations",
+                            "placeholder": "",
+                            "defaultValue": "Germany West Central",
+                            "toolTip": "",
+                            "multiselect": true,
+                            "selectAll": true,
+                            "filter": true,
+                            "filterPlaceholder": "Filter Azure regions...",
+                            "multiLine": false,
+                            "defaultDescription": "",
+                            "constraints": {
+                                "allowedValues": [
+                                    {
+                                        "label": "North Europe",
+                                        "value": "northeurope"
+                                    },
+                                    {
+                                        "label": "West Europe",
+                                        "value": "westeurope"
+                                    },
+                                    {
+                                        "label": "Germany West Central",
+                                        "value": "germanywestcentral"
+                                    },
+                                    {
+                                        "label": "France Central",
+                                        "value": "francecentral"
+                                    },
+                                    {
+                                        "label": "UK South",
+                                        "value": "uksouth"
+                                    },
+                                    {
+                                        "label": "West US 2",
+                                        "value": "westus2"
+                                    },
+                                    {
+                                        "label": "East US",
+                                        "value": "eastus"
+                                    },
+                                    {
+                                        "label": "East US 2",
+                                        "value": "eastus2"
+                                    },
+                                    {
+                                        "label": "Centrak US",
+                                        "value": "centralus"
+                                    },
+                                    {
+                                        "label": "South Central US",
+                                        "value": "southcentralus"
+                                    },
+                                    {
+                                        "label": "Brazil South",
+                                        "value": "brazilsouth"
+                                    },
+                                    {
+                                        "label": "Canada Central",
+                                        "value": "canadacentral"
+                                    },
+                                    {
+                                        "label": "Australia East",
+                                        "value": "australiaeast"
+                                    },
+                                    {
+                                        "label": "South East Asia",
+                                        "value": "southeastasia"
+                                    },
+                                    {
+                                        "label": "Japan East",
+                                        "value": "japaneast"
+                                    }
+                                ],
+                                "required": true
+                            },
+                            "visible": "[equals(steps('aoE2ESettings').aoe2eenabled, 'Yes')]"
+                        }
+                    ]
+                },
+                {
+                    "name": "aoINTSettings",
                     "label": "AlwaysOn INT setup",
                     "bladeTitle": "AlwaysOn prefix",
                     "elements": [
@@ -280,7 +430,7 @@
                     ]
                 },
                 {
-                    "name": "aoProdSettings",
+                    "name": "aoPRODSettings",
                     "label": "AlwaysOn PROD setup",
                     "bladeTitle": "AlwaysOn prefix",
                     "elements": [
