@@ -48,13 +48,18 @@
                 "prod"
             ]
         },
-        "prefix": {
+        "e2ePrefix": {
             "type": "string",
             "defaultValue": ""
         },
-        "subscriptionId": {
+        "e2eSubscriptionId": {
             "type": "string",
             "defaultValue": ""
+        },
+
+        "e2eLocations":{
+            "type": "array",
+            "defaultValue": []
         }
     },
     "variables": {
