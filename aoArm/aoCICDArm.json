@@ -29,15 +29,16 @@
         "ghPAToken": {
             "type": "securestring"
         },
-        "prefix": {
+        "e2ePrefix": {
             "type": "string"
         },
-        "subscriptionId": {
+        "e2eSubscriptionId": {
             "type": "string"
         },
-        "environment": {
-            "type": "string"
+        "e2eLocations": {
+            "type": "array"
         }
+
     },
     "variables": {
         "userManagedIdentityName": "[concat('test', '-umi')]"
@@ -56,7 +57,7 @@
                                       '-AzureSubscriptionId', ' ', subscription().subscriptionId, ' ',
                                       '-AzDevOpsOrgName', ' ', parameters('adoOrgName'), ' ',
                                       '-AzDevOpsProjectName', ' ', parameters('adoProjectName'), ' ',
-                                      '-AzDevOpsEnvironmentName' , ' ', parameters('environment'), ' ',
+                                      '-AOE2EPrefix' , ' ', parameters('e2ePrefix'), ' ',
                                       '-ServicePrincipalName', ' ', 'todelete-ao', ' ',
                                       '-GithubPAT', ' ', parameters('ghPAToken'), ' ',
                                       '-GithubAccountName', ' ', parameters('ghOrgName'), ' ',
@@ -64,7 +65,7 @@
                                       '-GithubBranchName', ' ', 'new-test', ' ',
                                       '-SkipFirstPipelineRun', ' ', '$True' , ' ',
                                       '-SmokeTestUserName', ' ', '\"user@demo.always-on.app\"')]",
-                                      
+
                 "environmentVariables": [
                     {
                         "name": "AZURE_DEVOPS_EXT_PAT",

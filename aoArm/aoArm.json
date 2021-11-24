@@ -39,15 +39,6 @@
             "type": "securestring",
             "defaultValue": ""
         },
-        "environment": {
-            "type": "string",
-            "defaultValue": "e2e",
-            "allowedValues" : [
-                "e2e",
-                "int",
-                "prod"
-            ]
-        },
         "e2ePrefix": {
             "type": "string",
             "defaultValue": ""
@@ -116,14 +107,14 @@
                     "ghPAToken": {
                         "value": "[parameters('ghPAToken')]"
                     },
-                    "prefix": {
-                        "value": "[parameters('prefix')]"
+                    "e2eprefix": {
+                        "value": "[parameters('e2ePrefix')]"
                     },
                     "subscriptionId": {
-                        "value": "[parameters('subscriptionId')]"
+                        "value": "[parameters('e2eSubscriptionId')]"
                     },
-                    "environment": {
-                        "value": "[parameters('environment')]"
+                    "e2eLocations": {
+                        "value": "[parameters('e2eLocations')]"
                     }
                 }
             }

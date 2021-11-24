@@ -16,8 +16,8 @@ param
   [string] $AzDevOpsOrgName,
   # The name of the Azure DevOps project to create for AlwaysOn. If it does not exist, it will be created. If it already exists, the script will deploy into the existing project.
   [string] $AzDevOpsProjectName,
-  # Environment to provision. AlwaysOn currently supports "e2e", "int", "prod".
-  [string] $AzDevOpsEnvironmentName,
+  # Environment to provision. E2E prefic
+  [string] $AOE2EPrefix,
   # Service Principal name to create for use with Azure Service Connection. Must be unique in the Azure tenant. There are no naming rules for Service Principals, but a naming convention makes sense for organization/governance. Example name could be "alwayson-sp-MYORG-MYDEPT" or similar, where MYORG and MYDEPT could be replaced by specific infixes for your organization, department, etc. Keep it simple and clear.
   [string] $ServicePrincipalName,
   # GitHub Personal Access Token for service connection and pipeline imports. Needs admin:repo_hook, repo.*, user.*, and must be SSO-enabled if required by your GitHub org. Manage PATs at https://github.com/settings/tokens
@@ -135,6 +135,16 @@ git branch -m old-main
 git checkout --orphan main
 git commit -m "First commit done by the pipeline"
 git push -u origin main
+
+git checkout -b feature/e2e-demobuild
+
+[string] $replaceString = "value: '$AOE2EPrefix'"
+(Get-Content ./.ado/pipelines/config/variables-values-e2e.yaml).replace('value: ''aoe2e''', $replaceString) | Set-Content ./.ado/pipelines/config/variables-values-e2e.yaml
+
+git add ./.ado/pipelines/config/variables-values-e2e.yaml
+git commit -m "Update pipeline configuration"
+
+git push remote feature/e2e-demobuild
 
 
 # Write-Host "Create AzDO Variables as Secrets"
