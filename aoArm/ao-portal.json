@@ -692,7 +692,7 @@
             },
             "kind": "Subscription",
             "subscriptionId": "[steps('aoE2ESettings').aoE2ESubSection.aoE2ESub.subscription.id]",
-            "location": "northeurope"
+            "location": "[steps('aoE2ESettings').aoE2ELocations[0]]"
         }
     }
 }
