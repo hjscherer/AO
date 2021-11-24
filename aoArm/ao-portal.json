@@ -216,9 +216,9 @@
                             }
                         },
                         {
-                            "name": "aoPrefix",
+                            "name": "aoE2EPrefix",
                             "type": "Microsoft.Common.TextBox",
-                            "label": "AlwaysOn prefix",
+                            "label": "AlwaysOn E2E prefix",
                             "toolTip": "Provide a prefix (max 5 characters)",
                             "defaultValue": "",
                             "constraints": {
@@ -373,9 +373,9 @@
                             }
                         },
                         {
-                            "name": "aoPrefix",
+                            "name": "aoIntPrefix",
                             "type": "Microsoft.Common.TextBox",
-                            "label": "AlwaysOn prefix",
+                            "label": "AlwaysOn INT prefix",
                             "toolTip": "Provide a prefix (max 5 characters)",
                             "defaultValue": "",
                             "constraints": {
@@ -530,9 +530,9 @@
                             }
                         },
                         {
-                            "name": "aoPrefix",
+                            "name": "aoPRODPrefix",
                             "type": "Microsoft.Common.TextBox",
-                            "label": "AlwaysOn prefix",
+                            "label": "AlwaysOn PROD prefix",
                             "toolTip": "Provide a prefix (max 5 characters)",
                             "defaultValue": "",
                             "constraints": {
@@ -668,7 +668,7 @@
                 "adoProjectName": "[steps('aoDevOps').aoAdoProjectName]",
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "patToken": "[steps('aoDevOps').aoPatToken]",
-                "prefix": "[steps('aoE2ESettings').aoPrefix]",
+                "prefix": "[steps('aoE2ESettings').aoE2EPrefix]",
                 "subscriptionId": "[steps('aoE2ESettings').aoe2eSubSection.aoSub.subscription.id]"
             },
             "kind": "Subscription",
