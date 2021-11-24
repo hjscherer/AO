@@ -190,7 +190,7 @@
                             "visible": true
                         },
                         {
-                            "name": "aoe2eSubSection",
+                            "name": "aoE2ESubSection",
                             "type": "Microsoft.Common.Section",
                             "label": "Single platform subscription",
                             "elements": [
@@ -353,7 +353,7 @@
                             "elements": [
                                 {
                                     "type": "Microsoft.Common.SubscriptionSelector",
-                                    "name": "aoSub",
+                                    "name": "aoIntSub",
                                     "label": "AlwaysOn INT subscription"
                                 }
                             ],
@@ -504,23 +504,23 @@
                             "visible": true
                         },
                         {
-                            "name": "aoProdSubSection",
+                            "name": "aoPRODSubSection",
                             "type": "Microsoft.Common.Section",
                             "label": "Single platform subscription",
                             "elements": [
                                 {
                                     "type": "Microsoft.Common.SubscriptionSelector",
                                     "name": "aoSub",
-                                    "label": "AlwaysOn E2E subscription"
+                                    "label": "AlwaysOn PROD subscription"
                                 }
                             ],
-                            "visible": "[equals(steps('aoPRODSettings').aoe2eenabled, 'Yes')]"
+                            "visible": "[equals(steps('aoPRODSettings').aoProdEnabled, 'Yes')]"
                         },
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "defaultValue": "",
-                            "visible": "[equals(steps('aoPRODSettings').aoe2eenabled, 'Yes')]",
+                            "visible": "[equals(steps('aoPRODSettings').aoProdEnabled, 'Yes')]",
                             "options": {
                                 "text": "AlwaysOn deployment:",
                                 "link": {
@@ -669,7 +669,7 @@
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "patToken": "[steps('aoDevOps').aoPatToken]",
                 "prefix": "[steps('aoE2ESettings').aoE2EPrefix]",
-                "subscriptionId": "[steps('aoE2ESettings').aoe2eSubSection.aoSub.subscription.id]"
+                "subscriptionId": "[steps('aoE2ESettings').aoE2ESubSection.aoSub.subscription.id]"
             },
             "kind": "Subscription",
             "subscriptionId": "[steps('basics').resourceScope.subscription.id]",
