@@ -88,6 +88,23 @@
                             }
                         },
                         {
+                            "name": "aoADOPatToken",
+                            "type": "Microsoft.Common.PasswordBox",
+                            "label": {
+                                "password": "ADO personal access token",
+                                "confirmPassword": "Confirm PA Token"
+                            },
+                            "toolTip": "Provide the personal access token to access your ADO organization.",
+                            "constraints": {
+                                "required": true,
+                                "validationMessage": "Password must be at least 8 characters long, contain only numbers and letters"
+                            },
+                            "options": {
+                                "hideConfirmation": true
+                            },
+                            "visible": true
+                        },
+                        {
                             "name": "aoGhOrg",
                             "type": "Microsoft.Common.TextBox",
                             "label": "GitHub organization or username",
@@ -666,6 +683,7 @@
                 "principalSecret": "[steps('aoDevOps').spnSection.aoServicePrincipal.password]",
                 "adoOrgName": "[steps('aoDevOps').aoAdoOrg]",
                 "adoProjectName": "[steps('aoDevOps').aoAdoProjectName]",
+                "adoPAT": "[steps('aoDevOps').aoADOPatToken]",
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
                 "patToken": "[steps('aoDevOps').aoPatToken]",
                 "e2ePrefix": "[steps('aoE2ESettings').aoE2EPrefix]",

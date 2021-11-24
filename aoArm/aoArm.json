@@ -10,7 +10,6 @@
             "type": "securestring",
             "defaultValue": ""
         },
-
         "appId": {
             "type": "string",
             "defaultValue": ""
@@ -110,7 +109,7 @@
                     "e2eprefix": {
                         "value": "[parameters('e2ePrefix')]"
                     },
-                    "subscriptionId": {
+                    "e2esubscriptionId": {
                         "value": "[parameters('e2eSubscriptionId')]"
                     },
                     "e2eLocations": {
