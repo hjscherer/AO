@@ -685,7 +685,7 @@
                 "adoProjectName": "[steps('aoDevOps').aoAdoProjectName]",
                 "adoPAT": "[steps('aoDevOps').aoADOPatToken]",
                 "ghOrgName": "[steps('aoDevOps').aoGhOrg]",
-                "patToken": "[steps('aoDevOps').aoPatToken]",
+                "ghPAToken": "[steps('aoDevOps').aoPatToken]",
                 "e2ePrefix": "[steps('aoE2ESettings').aoE2EPrefix]",
                 "e2eSubscriptionId": "[steps('aoE2ESettings').aoE2ESubSection.aoE2ESub.subscription.id]",
                 "e2eLocations": "[steps('aoE2ESettings').aoE2ELocations]"
