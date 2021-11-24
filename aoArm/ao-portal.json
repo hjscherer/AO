@@ -691,8 +691,8 @@
                 "e2eLocations": "[steps('aoE2ESettings').aoE2ELocations]"
             },
             "kind": "Subscription",
-            "subscriptionId": "[steps('deployment').resourceScope.subscription.id]",
-            "location": "[steps('deployment').resourceScope.location.name]"
+            "subscriptionId": "[steps('aoE2ESettings').aoE2ESubSection.aoE2ESub.subscription.id]",
+            "location": "northeurope"
         }
     }
 }
