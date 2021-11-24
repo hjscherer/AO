@@ -222,7 +222,7 @@
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
                                 "validationMessage": "The prefix must be 1-5 characters."
                             },
-                            "visible": true
+                            "visible": "true"
                         },
                         {
                             "name": "aoE2ELocations",
@@ -300,9 +300,9 @@
                                         "value": "japaneast"
                                     }
                                 ],
-                                "required": true
+                                "required": "true"
                             },
-                            "visible": true
+                            "visible": "true"
                         }
                     ]
                 },
@@ -671,7 +671,7 @@
             },
             "kind": "Subscription",
             "subscriptionId": "[steps('aoE2ESettings').aoE2ESubSection.aoE2ESub.subscription.id]",
-            "location": "[first(steps('aoE2ESettings').aoE2ELocations)]"
+            "location": "[steps('deployment').resourceScope.location.name]"
         }
     }
 }
