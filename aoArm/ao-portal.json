@@ -461,9 +461,9 @@
                                         "value": "japaneast"
                                     }
                                 ],
-                                "required": "[equals(steps('aoE2ESettings').aoIntEnabled, 'Yes')]"
+                                "required": "[equals(steps('aoINTSettings').aoIntEnabled, 'Yes')]"
                             },
-                            "visible": "[equals(steps('aoE2ESettings').aoIntEnabled, 'Yes')]"
+                            "visible": "[equals(steps('aoINTSettings').aoIntEnabled, 'Yes')]"
                         }
                     ]
                 },
