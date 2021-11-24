@@ -186,27 +186,6 @@
                             }
                         },
                         {
-                            "name": "aoE2eEnabled",
-                            "type": "Microsoft.Common.OptionsGroup",
-                            "label": "Deploy a E2E environment and pipeline?",
-                            "defaultValue": "Yes",
-                            "toolTip": "",
-                            "constraints": {
-                                "allowedValues": [
-                                    {
-                                        "label": "Yes",
-                                        "value": "Yes"
-                                    },
-                                    {
-                                        "label": "No",
-                                        "value": "No"
-                                    }
-                                ],
-                                "required": true
-                            },
-                            "visible": true
-                        },
-                        {
                             "name": "aoE2ESubSection",
                             "type": "Microsoft.Common.Section",
                             "label": "Single platform subscription",
@@ -217,13 +196,13 @@
                                     "label": "AlwaysOn E2E subscription"
                                 }
                             ],
-                            "visible": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]"
+                            "visible": true
                         },
                         {
                             "name": "resourceGroup",
                             "type": "Microsoft.Common.TextBlock",
                             "defaultValue": "",
-                            "visible": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]",
+                            "visible": true,
                             "options": {
                                 "text": "AlwaysOn deployment:",
                                 "link": {
@@ -239,11 +218,11 @@
                             "toolTip": "Provide a prefix (max 5 characters)",
                             "defaultValue": "",
                             "constraints": {
-                                "required": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]",
+                                "required": true,
                                 "regex": "^[a-z0-9A-Z-]{1,5}$",
                                 "validationMessage": "The prefix must be 1-5 characters."
                             },
-                            "visible": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]"
+                            "visible": true
                         },
                         {
                             "name": "aoE2ELocations",
@@ -321,9 +300,9 @@
                                         "value": "japaneast"
                                     }
                                 ],
-                                "required": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]"
+                                "required": true
                             },
-                            "visible": "[equals(steps('aoE2ESettings').aoE2eEnabled, 'Yes')]"
+                            "visible": true
                         }
                     ]
                 },
